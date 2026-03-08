@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="HTML Complete Notes in Hindi — Tags, Attributes, Forms, Tables, Semantic HTML सब कुछ detail में!">
+    <title>HTML Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <header class="course-header">
+        <div class="header-inner">
+            <a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar">
+                <span class="icon">🏗️</span>
+                <h1>HTML Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. HTML क्या है?</a></li>
+                <li><a href="#ch2">2. Basic Structure</a></li>
+                <li><a href="#ch3">3. Text Tags</a></li>
+                <li><a href="#ch4">4. Links & Images</a></li>
+                <li><a href="#ch5">5. Lists</a></li>
+                <li><a href="#ch6">6. Tables</a></li>
+                <li><a href="#ch7">7. Forms</a></li>
+                <li><a href="#ch8">8. Semantic HTML</a></li>
+                <li><a href="#ch9">9. Media Tags</a></li>
+                <li><a href="#ch10">10. Meta & SEO</a></li>
+                <li><a href="#ch11">11. AI Tips</a></li>
+                <li><a href="#ch12">12. Interview Questions</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+
+        <div class="course-content">
+
+            <!-- Chapter 1 -->
+            <div class="chapter" id="ch1">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 01</span>
+                    <h2>HTML क्या है? — Introduction</h2>
+                </div>
+                <p><strong>HTML</strong> का full form है <em>HyperText Markup Language</em>। यह web का foundation है —
+                    हर website HTML से बनती है।</p>
+                <p>Simple शब्दों में: <strong>HTML website का skeleton (ढांचा) है।</strong> जैसे शरीर की हड्डियां होती
+                    हैं, वैसे ही website का structure HTML से बनता है।</p>
+
+                <h3>HTML क्यों ज़रूरी है?</h3>
+                <ul>
+                    <li><strong>हर website का base</strong> — बिना HTML के कोई webpage exist नहीं करता</li>
+                    <li><strong>Browser समझता है</strong> — Browser HTML पढ़कर text, images, links display करता है</li>
+                    <li><strong>सबसे आसान भाषा</strong> — कोई programming experience ज़रूरी नहीं</li>
+                    <li><strong>SEO का foundation</strong> — Google आपकी site को HTML structure से समझता है</li>
+                    <li><strong>CSS और JS का base</strong> — बिना HTML के CSS और JavaScript काम नहीं करती</li>
+                </ul>
+
+                <div class="info-box note">
+                    <p><strong>💡 याद रखें:</strong> HTML एक <em>programming language नहीं</em> है — यह एक <em>markup
+                            language</em> है। इसमें कोई logic, loops, या conditions नहीं होते। बस structure define होता
+                        है।</p>
+                </div>
+            </div>
+
+            <!-- Chapter 2 -->
+            <div class="chapter" id="ch2">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 02</span>
+                    <h2>Basic Structure — HTML का ढांचा</h2>
+                </div>
+                <p>हर HTML file का एक fixed structure होता है। Browser को बताना पड़ता है — "यह एक HTML document है":</p>
+
+                <div class="code-block">
+                    <div class="code-block-title">📄 index.html — Basic Structure</div>
+                    <pre><code><span class="cmt">&lt;!-- 1. Document Type Declaration --&gt;</span>
+<span class="tag">&lt;!DOCTYPE html&gt;</span>
+
+<span class="cmt">&lt;!-- 2. HTML Root Element (lang = भाषा) --&gt;</span>
+<span class="tag">&lt;html</span> <span class="attr">lang</span>=<span class="val">"hi"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- 3. Head — Meta info (browser को) --&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;title&gt;</span>मेरी पहली Website<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+
+<span class="cmt">&lt;!-- 4. Body — जो screen पर दिखता है --&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+    <span class="tag">&lt;h1&gt;</span>नमस्ते दुनिया! 🌍<span class="tag">&lt;/h1&gt;</span>
+    <span class="tag">&lt;p&gt;</span>यह मेरी पहली website है।<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+
+<span class="tag">&lt;/html&gt;</span></code></pre>
+                </div>
+
+                <h3>हर part का मतलब:</h3>
+                <table class="notes-table">
+                    <tr>
+                        <th>Part</th>
+                        <th>क्या करता है?</th>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;!DOCTYPE html&gt;</code></td>
+                        <td>Browser को बताता है कि यह HTML5 document है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;html&gt;</code></td>
+                        <td>पूरे page का root element — सब कुछ इसके अंदर आता है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;head&gt;</code></td>
+                        <td>Meta info — title, charset, CSS links (screen पर नहीं दिखता)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;body&gt;</code></td>
+                        <td>जो content user को दिखता है — text, images, buttons सब यहाँ</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Chapter 3 -->
+            <div class="chapter" id="ch3">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 03</span>
+                    <h2>Text Tags — Text को Format करना</h2>
+                </div>
+                <p>HTML में text दिखाने के लिए अलग-अलग tags होते हैं:</p>
+
+                <div class="code-block">
+                    <div class="code-block-title">📝 Text Tags Example</div>
+                    <pre><code><span class="cmt">&lt;!-- Headings: h1 सबसे बड़ा, h6 सबसे छोटा --&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Main Heading (सबसे important)<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Sub Heading<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;h3&gt;</span>Section Heading<span class="tag">&lt;/h3&gt;</span>
+
+<span class="cmt">&lt;!-- Paragraph --&gt;</span>
+<span class="tag">&lt;p&gt;</span>यह एक paragraph है। लंबा text लिखने के लिए।<span class="tag">&lt;/p&gt;</span>
+
+<span class="cmt">&lt;!-- Text Formatting --&gt;</span>
+<span class="tag">&lt;strong&gt;</span>Bold Text (important)<span class="tag">&lt;/strong&gt;</span>
+<span class="tag">&lt;em&gt;</span>Italic Text (emphasis)<span class="tag">&lt;/em&gt;</span>
+<span class="tag">&lt;mark&gt;</span>Highlighted Text<span class="tag">&lt;/mark&gt;</span>
+<span class="tag">&lt;del&gt;</span>Deleted/Strikethrough<span class="tag">&lt;/del&gt;</span>
+<span class="tag">&lt;small&gt;</span>Small Text<span class="tag">&lt;/small&gt;</span>
+<span class="tag">&lt;sub&gt;</span>Subscript (H₂O)<span class="tag">&lt;/sub&gt;</span>
+<span class="tag">&lt;sup&gt;</span>Superscript (x²)<span class="tag">&lt;/sup&gt;</span>
+
+<span class="cmt">&lt;!-- Line break & Horizontal line --&gt;</span>
+<span class="tag">&lt;br&gt;</span>    <span class="cmt">&lt;!-- New line --&gt;</span>
+<span class="tag">&lt;hr&gt;</span>    <span class="cmt">&lt;!-- Horizontal line --&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <p><strong>⚡ Pro Tip:</strong> <code>&lt;b&gt;</code> और <code>&lt;strong&gt;</code> दोनों bold करते
+                        हैं, लेकिन <code>&lt;strong&gt;</code> SEO के लिए better है क्योंकि यह Google को बताता है कि
+                        text <em>important</em> है!</p>
+                </div>
+            </div>
+
+            <!-- Chapter 4 -->
+            <div class="chapter" id="ch4">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 04</span>
+                    <h2>Links & Images — जोड़ना और दिखाना</h2>
+                </div>
+
+                <h3>🔗 Links (Anchor Tag)</h3>
+                <div class="code-block">
+                    <div class="code-block-title">🔗 Links Example</div>
+                    <pre><code><span class="cmt">&lt;!-- Basic link --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span><span class="tag">&gt;</span>Google पर जाएं<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- New tab में खोलें --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span> <span class="attr">target</span>=<span class="val">"_blank"</span><span class="tag">&gt;</span>New Tab<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Same page का section (bookmark) --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"#contact"</span><span class="tag">&gt;</span>Contact Section<span class="tag">&lt;/a&gt;</span>
+
+<span class="cmt">&lt;!-- Email link --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"mailto:anshu@email.com"</span><span class="tag">&gt;</span>Email भेजें<span class="tag">&lt;/a&gt;</span></code></pre>
+                </div>
+
+                <h3>🖼️ Images</h3>
+                <div class="code-block">
+                    <div class="code-block-title">🖼️ Images Example</div>
+                    <pre><code><span class="cmt">&lt;!-- Basic image --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"photo.jpg"</span> <span class="attr">alt</span>=<span class="val">"मेरी फोटो"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- Size set करें --&gt;</span>
+<span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"logo.png"</span> <span class="attr">alt</span>=<span class="val">"Logo"</span> <span class="attr">width</span>=<span class="val">"200"</span> <span class="attr">height</span>=<span class="val">"100"</span><span class="tag">&gt;</span>
+
+<span class="cmt">&lt;!-- Image with link --&gt;</span>
+<span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="val">"https://google.com"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"google-logo.png"</span> <span class="attr">alt</span>=<span class="val">"Google"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/a&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box warn">
+                    <p><strong>⚠️ Important:</strong> <code>alt</code> attribute हमेशा दें! यह image load न होने पर text
+                        दिखाता है, screen readers इसे पढ़ते हैं, और <strong>SEO के लिए ज़रूरी</strong> है।</p>
+                </div>
+            </div>
+
+            <!-- Chapter 5 -->
+            <div class="chapter" id="ch5">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 05</span>
+                    <h2>Lists — सूची बनाना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📋 Lists Example</div>
+                    <pre><code><span class="cmt">&lt;!-- Unordered List (बिना नंबर — bullets) --&gt;</span>
+<span class="tag">&lt;ul&gt;</span>
+    <span class="tag">&lt;li&gt;</span>HTML सीखो<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>CSS सीखो<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>JavaScript सीखो<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ul&gt;</span>
+
+<span class="cmt">&lt;!-- Ordered List (numbered) --&gt;</span>
+<span class="tag">&lt;ol&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Step 1: File बनाओ<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Step 2: Code लिखो<span class="tag">&lt;/li&gt;</span>
+    <span class="tag">&lt;li&gt;</span>Step 3: Browser में खोलो<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+
+<span class="cmt">&lt;!-- Description List --&gt;</span>
+<span class="tag">&lt;dl&gt;</span>
+    <span class="tag">&lt;dt&gt;</span>HTML<span class="tag">&lt;/dt&gt;</span>
+    <span class="tag">&lt;dd&gt;</span>HyperText Markup Language<span class="tag">&lt;/dd&gt;</span>
+    <span class="tag">&lt;dt&gt;</span>CSS<span class="tag">&lt;/dt&gt;</span>
+    <span class="tag">&lt;dd&gt;</span>Cascading Style Sheets<span class="tag">&lt;/dd&gt;</span>
+<span class="tag">&lt;/dl&gt;</span></code></pre>
+                </div>
+            </div>
+
+            <!-- Chapter 6 -->
+            <div class="chapter" id="ch6">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 06</span>
+                    <h2>Tables — टेबल बनाना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📊 Table Example</div>
+                    <pre><code><span class="tag">&lt;table</span> <span class="attr">border</span>=<span class="val">"1"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;thead&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Name<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>Age<span class="tag">&lt;/th&gt;</span>
+            <span class="tag">&lt;th&gt;</span>City<span class="tag">&lt;/th&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/thead&gt;</span>
+    <span class="tag">&lt;tbody&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Anshu<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>20<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Delhi<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+        <span class="tag">&lt;tr&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Priya<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>22<span class="tag">&lt;/td&gt;</span>
+            <span class="tag">&lt;td&gt;</span>Mumbai<span class="tag">&lt;/td&gt;</span>
+        <span class="tag">&lt;/tr&gt;</span>
+    <span class="tag">&lt;/tbody&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Tag</th>
+                        <th>काम</th>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;table&gt;</code></td>
+                        <td>Table शुरू करता है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;thead&gt;</code></td>
+                        <td>Table का header section</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tbody&gt;</code></td>
+                        <td>Table का body (data rows)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;tr&gt;</code></td>
+                        <td>Table Row (एक पूरी line)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;th&gt;</code></td>
+                        <td>Table Header cell (bold, centered)</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;td&gt;</code></td>
+                        <td>Table Data cell (normal data)</td>
+                    </tr>
+                    <tr>
+                        <td><code>colspan="2"</code></td>
+                        <td>Cell को 2 columns में merge करें</td>
+                    </tr>
+                    <tr>
+                        <td><code>rowspan="2"</code></td>
+                        <td>Cell को 2 rows में merge करें</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Chapter 7 -->
+            <div class="chapter" id="ch7">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 07</span>
+                    <h2>Forms — User से Input लेना</h2>
+                </div>
+                <p>Forms website का सबसे interactive part है — login, signup, contact, search — सब forms है!</p>
+
+                <div class="code-block">
+                    <div class="code-block-title">📝 Complete Form Example</div>
+                    <pre><code><span class="tag">&lt;form</span> <span class="attr">action</span>=<span class="val">"/submit"</span> <span class="attr">method</span>=<span class="val">"POST"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Text Input --&gt;</span>
+    <span class="tag">&lt;label</span> <span class="attr">for</span>=<span class="val">"name"</span><span class="tag">&gt;</span>नाम:<span class="tag">&lt;/label&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"text"</span> <span class="attr">id</span>=<span class="val">"name"</span> <span class="attr">placeholder</span>=<span class="val">"अपना नाम लिखें"</span> <span class="attr">required</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Email --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"email"</span> <span class="attr">placeholder</span>=<span class="val">"email@example.com"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Password --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"password"</span> <span class="attr">placeholder</span>=<span class="val">"Password"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Number --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"number"</span> <span class="attr">min</span>=<span class="val">"1"</span> <span class="attr">max</span>=<span class="val">"100"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Radio Buttons --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="attr">name</span>=<span class="val">"gender"</span> <span class="attr">value</span>=<span class="val">"male"</span><span class="tag">&gt;</span> Male
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"radio"</span> <span class="attr">name</span>=<span class="val">"gender"</span> <span class="attr">value</span>=<span class="val">"female"</span><span class="tag">&gt;</span> Female
+
+    <span class="cmt">&lt;!-- Checkbox --&gt;</span>
+    <span class="tag">&lt;input</span> <span class="attr">type</span>=<span class="val">"checkbox"</span><span class="tag">&gt;</span> I agree to terms
+
+    <span class="cmt">&lt;!-- Dropdown --&gt;</span>
+    <span class="tag">&lt;select&gt;</span>
+        <span class="tag">&lt;option&gt;</span>HTML<span class="tag">&lt;/option&gt;</span>
+        <span class="tag">&lt;option&gt;</span>CSS<span class="tag">&lt;/option&gt;</span>
+        <span class="tag">&lt;option&gt;</span>JavaScript<span class="tag">&lt;/option&gt;</span>
+    <span class="tag">&lt;/select&gt;</span>
+
+    <span class="cmt">&lt;!-- Textarea --&gt;</span>
+    <span class="tag">&lt;textarea</span> <span class="attr">rows</span>=<span class="val">"4"</span> <span class="attr">placeholder</span>=<span class="val">"Message लिखें..."</span><span class="tag">&gt;&lt;/textarea&gt;</span>
+
+    <span class="cmt">&lt;!-- Submit Button --&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attr">type</span>=<span class="val">"submit"</span><span class="tag">&gt;</span>Submit करें<span class="tag">&lt;/button&gt;</span>
+
+<span class="tag">&lt;/form&gt;</span></code></pre>
+                </div>
+
+                <div class="info-box tip">
+                    <p><strong>💡 Tip:</strong> <code>&lt;label&gt;</code> में <code>for</code> attribute हमेशा दें — यह
+                        input के <code>id</code> से match होना चाहिए। इससे label click करने पर input focus होता है!</p>
+                </div>
+            </div>
+
+            <!-- Chapter 8 -->
+            <div class="chapter" id="ch8">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 08</span>
+                    <h2>Semantic HTML — Meaningful Tags</h2>
+                </div>
+                <p>Semantic tags browser और Google दोनों को बताते हैं कि content का <strong>मतलब</strong> क्या है:</p>
+
+                <div class="code-block">
+                    <div class="code-block-title">🏗️ Semantic Structure</div>
+                    <pre><code><span class="tag">&lt;header&gt;</span>     <span class="cmt">&lt;!-- Page का top — logo, nav --&gt;</span>
+    <span class="tag">&lt;nav&gt;</span>      <span class="cmt">&lt;!-- Navigation links --&gt;</span>
+        <span class="tag">&lt;ul&gt;</span>...<span class="tag">&lt;/ul&gt;</span>
+    <span class="tag">&lt;/nav&gt;</span>
+<span class="tag">&lt;/header&gt;</span>
+
+<span class="tag">&lt;main&gt;</span>       <span class="cmt">&lt;!-- Primary content (एक ही page पर एक main) --&gt;</span>
+    <span class="tag">&lt;section&gt;</span>  <span class="cmt">&lt;!-- Thematic group (About, Services) --&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>...<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;/section&gt;</span>
+
+    <span class="tag">&lt;article&gt;</span>  <span class="cmt">&lt;!-- Independent content (blog post) --&gt;</span>
+        <span class="tag">&lt;h2&gt;</span>...<span class="tag">&lt;/h2&gt;</span>
+    <span class="tag">&lt;/article&gt;</span>
+
+    <span class="tag">&lt;aside&gt;</span>    <span class="cmt">&lt;!-- Side content (sidebar, ads) --&gt;</span>
+    <span class="tag">&lt;/aside&gt;</span>
+<span class="tag">&lt;/main&gt;</span>
+
+<span class="tag">&lt;footer&gt;</span>     <span class="cmt">&lt;!-- Page का bottom — copyright, links --&gt;</span>
+<span class="tag">&lt;/footer&gt;</span></code></pre>
+                </div>
+
+                <table class="notes-table">
+                    <tr>
+                        <th>Semantic Tag</th>
+                        <th>Non-Semantic</th>
+                        <th>फायदा</th>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;header&gt;</code></td>
+                        <td><code>&lt;div class="header"&gt;</code></td>
+                        <td>Google जानता है यह header है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;nav&gt;</code></td>
+                        <td><code>&lt;div class="nav"&gt;</code></td>
+                        <td>Site structure Google समझता है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;main&gt;</code></td>
+                        <td><code>&lt;div class="content"&gt;</code></td>
+                        <td>Primary content identify होता है</td>
+                    </tr>
+                    <tr>
+                        <td><code>&lt;article&gt;</code></td>
+                        <td><code>&lt;div class="post"&gt;</code></td>
+                        <td>Screen readers navigate कर पाते हैं</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Chapter 9 -->
+            <div class="chapter" id="ch9">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 09</span>
+                    <h2>Media Tags — Audio, Video, Iframe</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎬 Media Tags</div>
+                    <pre><code><span class="cmt">&lt;!-- Video --&gt;</span>
+<span class="tag">&lt;video</span> <span class="attr">src</span>=<span class="val">"video.mp4"</span> <span class="attr">controls</span> <span class="attr">width</span>=<span class="val">"400"</span><span class="tag">&gt;</span>
+    Video not supported
+<span class="tag">&lt;/video&gt;</span>
+
+<span class="cmt">&lt;!-- Audio --&gt;</span>
+<span class="tag">&lt;audio</span> <span class="attr">src</span>=<span class="val">"song.mp3"</span> <span class="attr">controls</span><span class="tag">&gt;&lt;/audio&gt;</span>
+
+<span class="cmt">&lt;!-- YouTube Video Embed --&gt;</span>
+<span class="tag">&lt;iframe</span> <span class="attr">src</span>=<span class="val">"https://youtube.com/embed/VIDEO_ID"</span>
+    <span class="attr">width</span>=<span class="val">"560"</span> <span class="attr">height</span>=<span class="val">"315"</span>
+    <span class="attr">allowfullscreen</span><span class="tag">&gt;&lt;/iframe&gt;</span>
+
+<span class="cmt">&lt;!-- Figure with Caption --&gt;</span>
+<span class="tag">&lt;figure&gt;</span>
+    <span class="tag">&lt;img</span> <span class="attr">src</span>=<span class="val">"chart.png"</span> <span class="attr">alt</span>=<span class="val">"Sales Chart"</span><span class="tag">&gt;</span>
+    <span class="tag">&lt;figcaption&gt;</span>2024 Sales Data<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span></code></pre>
+                </div>
+            </div>
+
+            <!-- Chapter 10 -->
+            <div class="chapter" id="ch10">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 10</span>
+                    <h2>Meta Tags & SEO — Google को बताओ</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔍 SEO Meta Tags</div>
+                    <pre><code><span class="tag">&lt;head&gt;</span>
+    <span class="cmt">&lt;!-- Character encoding --&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">charset</span>=<span class="val">"UTF-8"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Mobile responsive --&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"viewport"</span> <span class="attr">content</span>=<span class="val">"width=device-width, initial-scale=1.0"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Google search result में title --&gt;</span>
+    <span class="tag">&lt;title&gt;</span>Ansu Learning — Free Programming Notes<span class="tag">&lt;/title&gt;</span>
+
+    <span class="cmt">&lt;!-- Google search result में description --&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"description"</span> <span class="attr">content</span>=<span class="val">"Free Hindi programming notes..."</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Keywords (optional now) --&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">name</span>=<span class="val">"keywords"</span> <span class="attr">content</span>=<span class="val">"HTML, CSS, JavaScript"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Social media share image --&gt;</span>
+    <span class="tag">&lt;meta</span> <span class="attr">property</span>=<span class="val">"og:image"</span> <span class="attr">content</span>=<span class="val">"preview.jpg"</span><span class="tag">&gt;</span>
+
+    <span class="cmt">&lt;!-- Favicon --&gt;</span>
+    <span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"icon"</span> <span class="attr">href</span>=<span class="val">"favicon.ico"</span><span class="tag">&gt;</span>
+<span class="tag">&lt;/head&gt;</span></code></pre>
+                </div>
+            </div>
+
+            <!-- Chapter 11 — AI Tips -->
+            <div class="chapter" id="ch11">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 11</span>
+                    <h2>🤖 AI / LLM Tips for HTML</h2>
+                </div>
+                <p>Developer के तौर पर AI का सही इस्तेमाल करें, लेकिन AI की <strong>common गलतियों</strong> से भी बचें:
+                </p>
+
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "Registration form का HTML structure बनाओ with all input types"</p>
+                    <p>• "इस page को semantic HTML में convert करो"</p>
+                    <p>• "Table का HTML generate करो with this data..."</p>
+                    <p>• "मेरे HTML में accessibility issues बताओ"</p>
+                </div>
+
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI इन गलतियाँ कर सकता है:</strong></p>
+                    <p>• <strong>Heading hierarchy skip</strong> — AI कभी-कभी h1 के बाद सीधा h3 या h4 use कर देता है</p>
+                    <p>• <strong>Alt text generic</strong> — AI "image" या "photo" जैसे vague alt text देता है</p>
+                    <p>• <strong>Deprecated tags</strong> — AI कभी-कभी पुराने tags जैसे <code>&lt;center&gt;</code>,
+                        <code>&lt;font&gt;</code> use कर देता है</p>
+                    <p>• <strong>Self-closing tags</strong> — AI <code>&lt;img/&gt;</code> लिख सकता है, HTML5 में
+                        <code>/</code> optional है</p>
+                    <p>• <strong>Form validation missing</strong> — AI <code>required</code>, <code>minlength</code>
+                        जैसे attributes भूल सकता है</p>
+                </div>
+            </div>
+
+            <!-- Chapter 12 — Interview Questions -->
+            <div class="chapter" id="ch12">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+
+                <div class="info-box note">
+                    <p><strong>Q1: HTML और XHTML में क्या फर्क है?</strong></p>
+                    <p>→ XHTML stricter है — सभी tags lowercase में, proper closing ज़रूरी। HTML5 ज़्यादा flexible है।
+                    </p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: <code>&lt;div&gt;</code> और <code>&lt;span&gt;</code> में क्या फर्क है?</strong></p>
+                    <p>→ <code>div</code> = block element (पूरी width लेता है, new line)। <code>span</code> = inline
+                        element (text के बीच में)।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Semantic HTML Tags क्यों important हैं?</strong></p>
+                    <p>→ SEO improve होता है, accessibility बढ़ती है, code readable होता है, screen readers navigate कर
+                        पाते हैं।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: <code>&lt;b&gt;</code> और <code>&lt;strong&gt;</code> में क्या अंतर है?</strong></p>
+                    <p>→ <code>&lt;b&gt;</code> = बस visual bold। <code>&lt;strong&gt;</code> = semantic importance (SEO
+                        benefit)।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: <code>localStorage</code>, <code>sessionStorage</code>, और Cookies में फर्क?</strong>
+                    </p>
+                    <p>→ localStorage = permanent, 5MB। sessionStorage = tab close पर delete। Cookies = server को भेजे
+                        जाते हैं, 4KB limit।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q6: <code>&lt;section&gt;</code> और <code>&lt;div&gt;</code> कब use करें?</strong></p>
+                    <p>→ अगर content thematically related हो (heading हो) तो section। सिर्फ styling wrapper चाहिए तो
+                        div।</p>
+                </div>
+            </div>
+
+            <!-- Chapter 13 — Practice Tasks -->
+            <div class="chapter" id="ch13">
+                <div class="chapter-header">
+                    <span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <p>अब पढ़ना बंद करो और code करो! ये challenges try करो:</p>
+
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> एक <strong>personal profile page</strong> बनाओ जिसमें — अपना photo, नाम,
+                        bio paragraph, 3 skills list, और social media links हों।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> एक <strong>registration form</strong> बनाओ — name, email, password,
+                        gender (radio), agree checkbox, city (dropdown), submit button।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> एक <strong>restaurant menu table</strong> बनाओ — dish name, price,
+                        category, available (yes/no) columns हों।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> पूरा page <strong>semantic tags</strong> से बनाओ — header, nav, main
+                        (with section + article + aside), footer। कोई div use मत करो!</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> एक <strong>blog page layout</strong> बनाओ — heading, author info, date,
+                        content paragraphs, image with caption, और comments section।</p>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="course-nav">
+                <a href="index.html" class="nav-btn">
+                    <span class="nav-dir">← Back</span>
+                    <span class="nav-title">All Courses</span>
+                </a>
+                <a href="css-notes.html" class="nav-btn next">
+                    <span class="nav-dir">Next Course →</span>
+                    <span class="nav-title">CSS Notes</span>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+
+    <script>
+        // Scroll reveal
+        const io = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+        }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.chapter').forEach(el => io.observe(el));
+
+        // Active sidebar link on scroll
+        const chapters = document.querySelectorAll('.chapter');
+        const sideLinks = document.querySelectorAll('.sidebar a');
+        const sObs = new IntersectionObserver(es => {
+            es.forEach(e => {
+                if (e.isIntersecting) {
+                    sideLinks.forEach(l => l.classList.remove('active'));
+                    const id = e.target.id;
+                    const link = document.querySelector(`.sidebar a[href="#${id}"]`);
+                    if (link) link.classList.add('active');
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+        chapters.forEach(ch => sObs.observe(ch));
+
+        // Smooth scroll for sidebar
+        document.querySelectorAll('.sidebar a').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+
+</body>
+
+</html>
