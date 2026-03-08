@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="JavaScript Complete Notes in Hindi — Variables, Functions, DOM, Events, Arrays, Objects, Async/Await सब detail में!">
+    <title>JavaScript Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">⚡</span>
+                <h1>JavaScript Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. JS क्या है?</a></li>
+                <li><a href="#ch2">2. Variables</a></li>
+                <li><a href="#ch3">3. Data Types</a></li>
+                <li><a href="#ch4">4. Operators</a></li>
+                <li><a href="#ch5">5. Conditions</a></li>
+                <li><a href="#ch6">6. Loops</a></li>
+                <li><a href="#ch7">7. Functions</a></li>
+                <li><a href="#ch8">8. Arrays</a></li>
+                <li><a href="#ch9">9. Objects</a></li>
+                <li><a href="#ch10">10. DOM</a></li>
+                <li><a href="#ch11">11. Events</a></li>
+                <li><a href="#ch12">12. Async/Await</a></li>
+                <li><a href="#ch13">13. AI Tips</a></li>
+                <li><a href="#ch14">14. Interview Qs</a></li>
+                <li><a href="#ch15">15. Practice Tasks</a></li>
+            </ul>
+        </aside>
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>JavaScript क्या है? — Introduction</h2>
+                </div>
+                <p><strong>JavaScript</strong> web की <em>"brain"</em> है। HTML = skeleton, CSS = skin, <strong>JS =
+                        muscles + brain</strong>।</p>
+                <p>JS से website <strong>interactive</strong> बनती है — buttons click करना, forms validate करना,
+                    animations, API calls — सब JS से होता है!</p>
+                <ul>
+                    <li><strong>Frontend + Backend</strong> दोनों के लिए (Node.js)</li>
+                    <li><strong>दुनिया की #1 भाषा</strong> — सबसे ज़्यादा use होने वाली</li>
+                    <li><strong>No compilation</strong> — Browser में directly चलती है</li>
+                    <li><strong>Versatile</strong> — Web, Mobile (React Native), Desktop (Electron), AI/ML भी!</li>
+                </ul>
+                <div class="code-block">
+                    <div class="code-block-title">🚀 पहला JavaScript Code</div>
+                    <pre><code><span class="cmt">// Browser Console में try करो (F12 → Console tab)</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Hello, Anshu! 🚀"</span>);
+<span class="fn">alert</span>(<span class="val">"JavaScript काम कर रहा है!"</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>Variables — Data Store करना</h2>
+                </div>
+                <p>Variables = <strong>डब्बे (boxes)</strong> जिनमें data रखा जाता है।</p>
+                <div class="code-block">
+                    <div class="code-block-title">📦 Variables</div>
+                    <pre><code><span class="cmt">// ❌ var — पुराना, मत use करो</span>
+<span class="kw">var</span> <span class="prop">purana</span> = <span class="val">"avoid this"</span>;
+
+<span class="cmt">// ✅ let — value बदल सकती है</span>
+<span class="kw">let</span> <span class="prop">age</span> = <span class="num">20</span>;
+<span class="prop">age</span> = <span class="num">21</span>;  <span class="cmt">// OK, value change allowed</span>
+
+<span class="cmt">// ✅ const — value कभी नहीं बदलेगी</span>
+<span class="kw">const</span> <span class="prop">name</span> = <span class="val">"Anshu"</span>;
+<span class="cmt">// name = "Priya"; ❌ Error! const change नहीं हो सकता</span>
+
+<span class="cmt">// 📝 Rule: हमेशा const use करो, जब तक बदलनी न हो तब let</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>💡 Golden Rule:</strong> <code>const</code> by default use करो। सिर्फ जब value बदलनी हो
+                        तब <code>let</code>। <code>var</code> कभी मत use करो!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>Data Types</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🏷️ JavaScript Data Types</div>
+                    <pre><code><span class="cmt">// 1. String (text)</span>
+<span class="kw">const</span> <span class="prop">name</span> = <span class="val">"Anshu"</span>;
+<span class="kw">const</span> <span class="prop">greeting</span> = <span class="val">`Hello, ${name}!`</span>; <span class="cmt">// Template Literal ⭐</span>
+
+<span class="cmt">// 2. Number (integer + decimal)</span>
+<span class="kw">const</span> <span class="prop">age</span> = <span class="num">20</span>;
+<span class="kw">const</span> <span class="prop">price</span> = <span class="num">99.99</span>;
+
+<span class="cmt">// 3. Boolean (true/false)</span>
+<span class="kw">const</span> <span class="prop">isStudent</span> = <span class="val">true</span>;
+
+<span class="cmt">// 4. Undefined (declare किया but value नहीं दी)</span>
+<span class="kw">let</span> <span class="prop">future</span>;  <span class="cmt">// undefined</span>
+
+<span class="cmt">// 5. Null (intentionally empty)</span>
+<span class="kw">const</span> <span class="prop">empty</span> = <span class="val">null</span>;
+
+<span class="cmt">// 6. Array (list)</span>
+<span class="kw">const</span> <span class="prop">skills</span> = [<span class="val">"HTML"</span>, <span class="val">"CSS"</span>, <span class="val">"JS"</span>];
+
+<span class="cmt">// 7. Object (key-value pairs)</span>
+<span class="kw">const</span> <span class="prop">student</span> = { <span class="prop">name</span>: <span class="val">"Anshu"</span>, <span class="prop">age</span>: <span class="num">20</span> };
+
+<span class="cmt">// Type check</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="prop">name</span>);  <span class="cmt">// "string"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="kw">typeof</span> <span class="prop">age</span>);   <span class="cmt">// "number"</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>Operators</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">➕ Operators</div>
+                    <pre><code><span class="cmt">// Arithmetic</span>
+<span class="num">5</span> + <span class="num">3</span>   <span class="cmt">// 8  (जोड़)</span>
+<span class="num">10</span> - <span class="num">3</span>  <span class="cmt">// 7  (घटाव)</span>
+<span class="num">4</span> * <span class="num">3</span>   <span class="cmt">// 12 (गुणा)</span>
+<span class="num">10</span> / <span class="num">3</span>  <span class="cmt">// 3.33 (भाग)</span>
+<span class="num">10</span> % <span class="num">3</span>  <span class="cmt">// 1  (शेष - remainder)</span>
+<span class="num">2</span> ** <span class="num">3</span>  <span class="cmt">// 8  (power - 2³)</span>
+
+<span class="cmt">// Comparison — हमेशा === use करो!</span>
+<span class="num">5</span> === <span class="num">5</span>    <span class="cmt">// true  (strict equal ✅)</span>
+<span class="num">5</span> == <span class="val">"5"</span>   <span class="cmt">// true  (loose equal ❌ avoid!)</span>
+<span class="num">5</span> !== <span class="num">3</span>    <span class="cmt">// true  (not equal)</span>
+<span class="num">5</span> > <span class="num">3</span>     <span class="cmt">// true</span>
+<span class="num">5</span> <= <span class="num">5</span>    <span class="cmt">// true</span>
+
+<span class="cmt">// Logical</span>
+<span class="val">true</span> && <span class="val">true</span>   <span class="cmt">// true  (AND - दोनों true)</span>
+<span class="val">true</span> || <span class="val">false</span>  <span class="cmt">// true  (OR - कोई एक true)</span>
+!<span class="val">true</span>          <span class="cmt">// false (NOT - उल्टा)</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>Conditions — if else</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔀 Conditional Statements</div>
+                    <pre><code><span class="kw">const</span> <span class="prop">marks</span> = <span class="num">85</span>;
+
+<span class="kw">if</span> (<span class="prop">marks</span> >= <span class="num">90</span>) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"A+ Grade 🌟"</span>);
+} <span class="kw">else if</span> (<span class="prop">marks</span> >= <span class="num">80</span>) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"A Grade 👍"</span>);
+} <span class="kw">else if</span> (<span class="prop">marks</span> >= <span class="num">60</span>) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"B Grade"</span>);
+} <span class="kw">else</span> {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Fail 😢"</span>);
+}
+
+<span class="cmt">// Ternary Operator (short if-else)</span>
+<span class="kw">const</span> <span class="prop">result</span> = <span class="prop">marks</span> >= <span class="num">60</span> ? <span class="val">"Pass ✅"</span> : <span class="val">"Fail ❌"</span>;
+
+<span class="cmt">// Switch</span>
+<span class="kw">const</span> <span class="prop">day</span> = <span class="val">"Monday"</span>;
+<span class="kw">switch</span>(<span class="prop">day</span>) {
+    <span class="kw">case</span> <span class="val">"Monday"</span>: <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Start!"</span>); <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="val">"Friday"</span>: <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Weekend!"</span>); <span class="kw">break</span>;
+    <span class="kw">default</span>: <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Normal day"</span>);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>Loops — बार-बार दोहराना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔄 Loops</div>
+                    <pre><code><span class="cmt">// for loop — जब पता हो कितनी बार चलाना है</span>
+<span class="kw">for</span> (<span class="kw">let</span> <span class="prop">i</span> = <span class="num">1</span>; <span class="prop">i</span> <= <span class="num">5</span>; <span class="prop">i</span>++) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">`Count: ${<span class="prop">i</span>}`</span>);
+}
+
+<span class="cmt">// while loop — जब तक condition true हो</span>
+<span class="kw">let</span> <span class="prop">count</span> = <span class="num">0</span>;
+<span class="kw">while</span> (<span class="prop">count</span> < <span class="num">3</span>) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">count</span>);
+    <span class="prop">count</span>++;
+}
+
+<span class="cmt">// for...of — Array के items पर loop (⭐ most used)</span>
+<span class="kw">const</span> <span class="prop">fruits</span> = [<span class="val">"🍎"</span>, <span class="val">"🍌"</span>, <span class="val">"🍇"</span>];
+<span class="kw">for</span> (<span class="kw">const</span> <span class="prop">fruit</span> <span class="kw">of</span> <span class="prop">fruits</span>) {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">fruit</span>);
+}
+
+<span class="cmt">// forEach — Array method</span>
+<span class="prop">fruits</span>.<span class="fn">forEach</span>((<span class="prop">fruit</span>, <span class="prop">index</span>) => {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">`${<span class="prop">index</span>}: ${<span class="prop">fruit</span>}`</span>);
+});</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Functions — Code को Reusable बनाना</h2>
+                </div>
+                <p>Function = <strong>एक machine</strong> जो input लेती है, कुछ करती है, और output देती है।</p>
+                <div class="code-block">
+                    <div class="code-block-title">⚙️ Functions — Parameters & Return</div>
+                    <pre><code><span class="cmt">// 1. Function Declaration</span>
+<span class="kw">function</span> <span class="fn">add</span>(<span class="prop">a</span>, <span class="prop">b</span>) {   <span class="cmt">// a, b = Parameters (input placeholders)</span>
+    <span class="kw">return</span> <span class="prop">a</span> + <span class="prop">b</span>;       <span class="cmt">// return = output (result वापस देना)</span>
+}
+
+<span class="kw">const</span> <span class="prop">sum</span> = <span class="fn">add</span>(<span class="num">5</span>, <span class="num">3</span>);  <span class="cmt">// 5, 3 = Arguments (actual values)</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">sum</span>);       <span class="cmt">// 8</span>
+
+<span class="cmt">/*
+ * 📖 समझो:
+ * Parameters (a, b) = खाली boxes — function जब बनता है
+ * Arguments (5, 3)  = actual values — function जब call होता है
+ * Return            = result वापस करता है जहाँ से call हुआ
+ * बिना return के function undefined देता है
+ */</span>
+
+<span class="cmt">// 2. Arrow Function (modern way ⭐)</span>
+<span class="kw">const</span> <span class="fn">multiply</span> = (<span class="prop">a</span>, <span class="prop">b</span>) => <span class="prop">a</span> * <span class="prop">b</span>;
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">multiply</span>(<span class="num">4</span>, <span class="num">5</span>));  <span class="cmt">// 20</span>
+
+<span class="cmt">// 3. Default Parameters</span>
+<span class="kw">function</span> <span class="fn">greet</span>(<span class="prop">name</span> = <span class="val">"Guest"</span>) {
+    <span class="kw">return</span> <span class="val">`Hello, ${<span class="prop">name</span>}!`</span>;
+}
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">greet</span>());        <span class="cmt">// "Hello, Guest!"</span>
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="fn">greet</span>(<span class="val">"Anshu"</span>)); <span class="cmt">// "Hello, Anshu!"</span></code></pre>
+                </div>
+
+                <div class="info-box note">
+                    <p><strong>🔑 Parameters vs Arguments:</strong></p>
+                    <p>• <strong>Parameter</strong> = function definition में — <em>placeholder</em> (a, b)</p>
+                    <p>• <strong>Argument</strong> = function call में — <em>actual value</em> (5, 3)</p>
+                    <p>• <strong>Return</strong> = function से value बाहर निकालता है — variable में store कर सकते हैं
+                    </p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>Arrays — List of Items</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📋 Array Methods</div>
+                    <pre><code><span class="kw">const</span> <span class="prop">nums</span> = [<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>];
+
+<span class="cmt">// Access</span>
+<span class="prop">nums</span>[<span class="num">0</span>]          <span class="cmt">// 10 (index 0 से start)</span>
+<span class="prop">nums</span>.<span class="prop">length</span>      <span class="cmt">// 5</span>
+
+<span class="cmt">// Add/Remove</span>
+<span class="prop">nums</span>.<span class="fn">push</span>(<span class="num">60</span>);    <span class="cmt">// End में add</span>
+<span class="prop">nums</span>.<span class="fn">pop</span>();       <span class="cmt">// End से remove</span>
+<span class="prop">nums</span>.<span class="fn">unshift</span>(<span class="num">0</span>); <span class="cmt">// Start में add</span>
+<span class="prop">nums</span>.<span class="fn">shift</span>();     <span class="cmt">// Start से remove</span>
+
+<span class="cmt">// ⭐ Important Methods</span>
+<span class="kw">const</span> <span class="prop">doubled</span> = <span class="prop">nums</span>.<span class="fn">map</span>(<span class="prop">n</span> => <span class="prop">n</span> * <span class="num">2</span>);     <span class="cmt">// [20, 40, 60, 80, 100]</span>
+<span class="kw">const</span> <span class="prop">big</span> = <span class="prop">nums</span>.<span class="fn">filter</span>(<span class="prop">n</span> => <span class="prop">n</span> > <span class="num">25</span>);     <span class="cmt">// [30, 40, 50]</span>
+<span class="kw">const</span> <span class="prop">total</span> = <span class="prop">nums</span>.<span class="fn">reduce</span>((<span class="prop">a</span>,<span class="prop">b</span>) => <span class="prop">a</span>+<span class="prop">b</span>, <span class="num">0</span>); <span class="cmt">// 150</span>
+<span class="kw">const</span> <span class="prop">found</span> = <span class="prop">nums</span>.<span class="fn">find</span>(<span class="prop">n</span> => <span class="prop">n</span> > <span class="num">25</span>);     <span class="cmt">// 30 (first match)</span>
+<span class="kw">const</span> <span class="prop">has</span> = <span class="prop">nums</span>.<span class="fn">includes</span>(<span class="num">30</span>);            <span class="cmt">// true</span>
+
+<span class="cmt">// Destructuring</span>
+<span class="kw">const</span> [<span class="prop">first</span>, <span class="prop">second</span>, ...<span class="prop">rest</span>] = <span class="prop">nums</span>;
+<span class="cmt">// first=10, second=20, rest=[30,40,50]</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>Objects — Key-Value Data</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🧱 Objects</div>
+                    <pre><code><span class="kw">const</span> <span class="prop">student</span> = {
+    <span class="prop">name</span>: <span class="val">"Anshu"</span>,
+    <span class="prop">age</span>: <span class="num">20</span>,
+    <span class="prop">skills</span>: [<span class="val">"HTML"</span>, <span class="val">"CSS"</span>, <span class="val">"JS"</span>],
+    <span class="fn">greet</span>() {
+        <span class="kw">return</span> <span class="val">`Hi, I'm ${<span class="kw">this</span>.<span class="prop">name</span>}!`</span>;
+    }
+};
+
+<span class="cmt">// Access</span>
+<span class="prop">student</span>.<span class="prop">name</span>           <span class="cmt">// "Anshu"</span>
+<span class="prop">student</span>[<span class="val">"age"</span>]         <span class="cmt">// 20</span>
+<span class="prop">student</span>.<span class="fn">greet</span>()        <span class="cmt">// "Hi, I'm Anshu!"</span>
+
+<span class="cmt">// Destructuring</span>
+<span class="kw">const</span> { <span class="prop">name</span>, <span class="prop">age</span> } = <span class="prop">student</span>;
+
+<span class="cmt">// Spread Operator</span>
+<span class="kw">const</span> <span class="prop">updated</span> = { ...<span class="prop">student</span>, <span class="prop">age</span>: <span class="num">21</span> };
+
+<span class="cmt">// Object methods</span>
+<span class="fn">Object</span>.<span class="fn">keys</span>(<span class="prop">student</span>)    <span class="cmt">// ["name", "age", "skills", "greet"]</span>
+<span class="fn">Object</span>.<span class="fn">values</span>(<span class="prop">student</span>)  <span class="cmt">// ["Anshu", 20, [...], ƒ]</span>
+<span class="fn">Object</span>.<span class="fn">entries</span>(<span class="prop">student</span>) <span class="cmt">// [["name","Anshu"], ...]</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>DOM — HTML को JS से Control करना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎮 DOM Manipulation</div>
+                    <pre><code><span class="cmt">// Select Elements</span>
+<span class="kw">const</span> <span class="prop">heading</span> = <span class="prop">document</span>.<span class="fn">getElementById</span>(<span class="val">"title"</span>);
+<span class="kw">const</span> <span class="prop">btn</span> = <span class="prop">document</span>.<span class="fn">querySelector</span>(<span class="val">".btn"</span>);
+<span class="kw">const</span> <span class="prop">items</span> = <span class="prop">document</span>.<span class="fn">querySelectorAll</span>(<span class="val">".item"</span>);
+
+<span class="cmt">// Change Content</span>
+<span class="prop">heading</span>.<span class="prop">textContent</span> = <span class="val">"New Title!"</span>;
+<span class="prop">heading</span>.<span class="prop">innerHTML</span> = <span class="val">"&lt;em&gt;Styled!&lt;/em&gt;"</span>;
+
+<span class="cmt">// Change Styles</span>
+<span class="prop">heading</span>.<span class="prop">style</span>.<span class="prop">color</span> = <span class="val">"red"</span>;
+<span class="prop">heading</span>.<span class="prop">style</span>.<span class="prop">fontSize</span> = <span class="val">"2rem"</span>;
+
+<span class="cmt">// Classes</span>
+<span class="prop">btn</span>.<span class="prop">classList</span>.<span class="fn">add</span>(<span class="val">"active"</span>);
+<span class="prop">btn</span>.<span class="prop">classList</span>.<span class="fn">remove</span>(<span class="val">"active"</span>);
+<span class="prop">btn</span>.<span class="prop">classList</span>.<span class="fn">toggle</span>(<span class="val">"active"</span>);
+
+<span class="cmt">// Create Element</span>
+<span class="kw">const</span> <span class="prop">newDiv</span> = <span class="prop">document</span>.<span class="fn">createElement</span>(<span class="val">"div"</span>);
+<span class="prop">newDiv</span>.<span class="prop">textContent</span> = <span class="val">"I'm new!"</span>;
+<span class="prop">document</span>.<span class="prop">body</span>.<span class="fn">appendChild</span>(<span class="prop">newDiv</span>);</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>Events — User Actions Handle करना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🖱️ Events</div>
+                    <pre><code><span class="cmt">// Click Event</span>
+<span class="prop">btn</span>.<span class="fn">addEventListener</span>(<span class="val">"click"</span>, () => {
+    <span class="fn">alert</span>(<span class="val">"Button clicked!"</span>);
+});
+
+<span class="cmt">// Input Event (real-time typing)</span>
+<span class="prop">input</span>.<span class="fn">addEventListener</span>(<span class="val">"input"</span>, (<span class="prop">e</span>) => {
+    <span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">e</span>.<span class="prop">target</span>.<span class="prop">value</span>);  <span class="cmt">// जो type हो रहा है</span>
+});
+
+<span class="cmt">// Form Submit</span>
+<span class="prop">form</span>.<span class="fn">addEventListener</span>(<span class="val">"submit"</span>, (<span class="prop">e</span>) => {
+    <span class="prop">e</span>.<span class="fn">preventDefault</span>();  <span class="cmt">// Page reload रोको</span>
+    <span class="cmt">// form data process करो</span>
+});
+
+<span class="cmt">// Common Events: click, submit, input, change,</span>
+<span class="cmt">// keydown, keyup, mouseover, mouseout, scroll, load</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>Async/Await — API Calls</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🌐 Fetch API + Async/Await</div>
+                    <pre><code><span class="cmt">// API से data लाना</span>
+<span class="kw">async function</span> <span class="fn">getUsers</span>() {
+    <span class="kw">try</span> {
+        <span class="kw">const</span> <span class="prop">response</span> = <span class="kw">await</span> <span class="fn">fetch</span>(<span class="val">"https://jsonplaceholder.typicode.com/users"</span>);
+        <span class="kw">const</span> <span class="prop">users</span> = <span class="kw">await</span> <span class="prop">response</span>.<span class="fn">json</span>();
+        <span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">users</span>);
+    } <span class="kw">catch</span> (<span class="prop">error</span>) {
+        <span class="fn">console</span>.<span class="fn">log</span>(<span class="val">"Error:"</span>, <span class="prop">error</span>);
+    }
+}
+
+<span class="fn">getUsers</span>();
+
+<span class="cmt">/*
+ * async  = function को asynchronous बनाता है
+ * await  = promise resolve होने तक wait करो
+ * try/catch = error handle करो
+ * fetch  = HTTP request (API call)
+ * .json() = response को JavaScript object में convert
+ */</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🤖 AI Tips for JavaScript</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "Array of objects को filter/sort करो"</p>
+                    <p>• "इस function को arrow function में convert करो"</p>
+                    <p>• "API call करो और data display करो"</p>
+                    <p>• "Form validation logic लिखो"</p>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI की common गलतियाँ:</strong></p>
+                    <p>• <strong>var use करना</strong> — let/const की जगह var लिख देता है</p>
+                    <p>• <strong>== vs ===</strong> — loose equality use कर देता है</p>
+                    <p>• <strong>Error handling missing</strong> — try/catch भूल जाता है</p>
+                    <p>• <strong>Memory leaks</strong> — event listeners remove नहीं करता</p>
+                    <p>• <strong>Callback hell</strong> — async/await की जगह nested callbacks</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch14">
+                <div class="chapter-header"><span class="ch-num">Ch 14</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: <code>let</code>, <code>const</code>, <code>var</code> में फर्क?</strong></p>
+                    <p>→ var = function scoped, hoisted। let = block scoped, reassignable। const = block scoped, not
+                        reassignable।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: <code>==</code> vs <code>===</code>?</strong></p>
+                    <p>→ <code>==</code> type coercion करता है (5 == "5" true)। <code>===</code> strict check (type +
+                        value)। Always use ===!</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Closure क्या है?</strong></p>
+                    <p>→ Inner function जो outer function के variables access कर सकती है, even after outer function
+                        return हो गया हो।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: Event Bubbling vs Capturing?</strong></p>
+                    <p>→ Bubbling = child → parent (default)। Capturing = parent → child।
+                        <code>e.stopPropagation()</code> से रोक सकते हैं।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: Promise vs Async/Await?</strong></p>
+                    <p>→ दोनों same काम करते हैं। Async/Await syntactically cleaner है — code synchronous जैसा दिखता है।
+                    </p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q6: <code>map()</code> vs <code>forEach()</code>?</strong></p>
+                    <p>→ map() new array return करता है। forEach() कुछ return नहीं करता (side effects के लिए)।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch15">
+                <div class="chapter-header"><span class="ch-num">Ch 15</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> एक <strong>calculator</strong> बनाओ — 2 input fields, 4 buttons (+, -,
+                        *, /), result display।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> एक <strong>Todo List</strong> बनाओ — add, delete, mark complete
+                        features।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> एक function लिखो जो array of numbers से <strong>even numbers
+                            filter</strong> करे और उनका total return करे।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> <strong>API से data fetch</strong> करो (JSONPlaceholder) और page पर user
+                        cards display करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> एक <strong>form validation</strong> लिखो — empty fields check, email
+                        format, password strength।</p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="css-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">CSS Notes</span></a>
+                <a href="java-notes.html" class="nav-btn next"><span class="nav-dir">Next Course →</span><span
+                        class="nav-title">Java Notes</span></a>
+            </div>
+        </div>
+    </div>
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.05 }); document.querySelectorAll('.chapter').forEach(el => io.observe(el)); const chs = document.querySelectorAll('.chapter'), sls = document.querySelectorAll('.sidebar a'); const so = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sls.forEach(l => l.classList.remove('active')); const l = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (l) l.classList.add('active') } }) }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }); chs.forEach(c => so.observe(c)); document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }) }) });</script>
+</body>
+
+</html>
