@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="CSS Complete Notes in Hindi — Selectors, Box Model, Flexbox, Grid, Animations, Responsive Design सब detail में!">
+    <title>CSS Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">🎨</span>
+                <h1>CSS Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. CSS क्या है?</a></li>
+                <li><a href="#ch2">2. CSS कैसे जोड़ें?</a></li>
+                <li><a href="#ch3">3. Selectors</a></li>
+                <li><a href="#ch4">4. Colors & Fonts</a></li>
+                <li><a href="#ch5">5. Box Model</a></li>
+                <li><a href="#ch6">6. Display & Position</a></li>
+                <li><a href="#ch7">7. Flexbox</a></li>
+                <li><a href="#ch8">8. Grid</a></li>
+                <li><a href="#ch9">9. Animations</a></li>
+                <li><a href="#ch10">10. Responsive Design</a></li>
+                <li><a href="#ch11">11. AI Tips</a></li>
+                <li><a href="#ch12">12. Interview Questions</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>CSS क्या है? — Introduction</h2>
+                </div>
+                <p><strong>CSS</strong> = <em>Cascading Style Sheets</em>। यह HTML को <strong>सुंदर बनाती है</strong> —
+                    colors, fonts, spacing, layout सब CSS से आता है।</p>
+                <p>Simple शब्दों में: <strong>HTML = skeleton, CSS = skin + clothes</strong>। बिना CSS के हर website
+                    बोरिंग black text होगी!</p>
+                <h3>CSS क्यों ज़रूरी है?</h3>
+                <ul>
+                    <li><strong>Design और Layout</strong> — page कैसा दिखेगा, कहाँ क्या होगा</li>
+                    <li><strong>Responsive Design</strong> — mobile/tablet/desktop पर सही दिखे</li>
+                    <li><strong>Animations</strong> — hover effects, transitions, smooth movements</li>
+                    <li><strong>Consistency</strong> — एक CSS file से पूरी site का look control</li>
+                    <li><strong>Performance</strong> — HTML में inline styles से CSS file बेहतर है</li>
+                </ul>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>CSS कैसे जोड़ें? — 3 Methods</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📎 Method 1: External CSS (Best ✅)</div>
+                    <pre><code><span class="cmt">&lt;!-- HTML file में --&gt;</span>
+<span class="tag">&lt;link</span> <span class="attr">rel</span>=<span class="val">"stylesheet"</span> <span class="attr">href</span>=<span class="val">"style.css"</span><span class="tag">&gt;</span>
+
+<span class="cmt">/* style.css file में */</span>
+<span class="prop">body</span> {
+    <span class="attr">background-color</span>: <span class="val">#0a0a0f</span>;
+    <span class="attr">color</span>: <span class="val">white</span>;
+}</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">📎 Method 2: Internal CSS</div>
+                    <pre><code><span class="tag">&lt;style&gt;</span>
+    <span class="prop">h1</span> { <span class="attr">color</span>: <span class="val">red</span>; }
+<span class="tag">&lt;/style&gt;</span></code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">📎 Method 3: Inline CSS (Avoid ❌)</div>
+                    <pre><code><span class="tag">&lt;p</span> <span class="attr">style</span>=<span class="val">"color: red; font-size: 20px;"</span><span class="tag">&gt;</span>Text<span class="tag">&lt;/p&gt;</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>⚡ Rule:</strong> हमेशा External CSS use करो! Code clean रहता है, caching होती है, और
+                        maintenance आसान।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>Selectors — किसे Style दें?</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎯 CSS Selectors</div>
+                    <pre><code><span class="cmt">/* 1. Element Selector */</span>
+<span class="prop">p</span> { <span class="attr">color</span>: <span class="val">white</span>; }
+
+<span class="cmt">/* 2. Class Selector (.) — multiple elements */</span>
+<span class="prop">.highlight</span> { <span class="attr">background</span>: <span class="val">yellow</span>; }
+
+<span class="cmt">/* 3. ID Selector (#) — unique element */</span>
+<span class="prop">#header</span> { <span class="attr">font-size</span>: <span class="val">24px</span>; }
+
+<span class="cmt">/* 4. Descendant (अंदर वाला) */</span>
+<span class="prop">nav a</span> { <span class="attr">color</span>: <span class="val">blue</span>; }
+
+<span class="cmt">/* 5. Direct Child */</span>
+<span class="prop">ul > li</span> { <span class="attr">list-style</span>: <span class="val">none</span>; }
+
+<span class="cmt">/* 6. Pseudo-class */</span>
+<span class="prop">a:hover</span> { <span class="attr">color</span>: <span class="val">red</span>; }
+<span class="prop">li:first-child</span> { <span class="attr">font-weight</span>: <span class="val">bold</span>; }
+<span class="prop">input:focus</span> { <span class="attr">border-color</span>: <span class="val">blue</span>; }
+
+<span class="cmt">/* 7. Pseudo-element */</span>
+<span class="prop">p::first-line</span> { <span class="attr">font-weight</span>: <span class="val">bold</span>; }
+<span class="prop">h1::before</span> { <span class="attr">content</span>: <span class="val">"🔥 "</span>; }
+
+<span class="cmt">/* 8. Attribute Selector */</span>
+<span class="prop">input[type="email"]</span> { <span class="attr">border</span>: <span class="val">2px solid green</span>; }
+
+<span class="cmt">/* 9. Universal Selector */</span>
+<span class="prop">*</span> { <span class="attr">margin</span>: <span class="val">0</span>; <span class="attr">padding</span>: <span class="val">0</span>; <span class="attr">box-sizing</span>: <span class="val">border-box</span>; }</code></pre>
+                </div>
+
+                <h3>Specificity (कौन जीतेगा?)</h3>
+                <table class="notes-table">
+                    <tr>
+                        <th>Selector</th>
+                        <th>Specificity</th>
+                        <th>Priority</th>
+                    </tr>
+                    <tr>
+                        <td><code>!important</code></td>
+                        <td>∞</td>
+                        <td>🥇 सबसे ऊपर</td>
+                    </tr>
+                    <tr>
+                        <td>Inline style</td>
+                        <td>1000</td>
+                        <td>🥈</td>
+                    </tr>
+                    <tr>
+                        <td>ID <code>#id</code></td>
+                        <td>100</td>
+                        <td>🥉</td>
+                    </tr>
+                    <tr>
+                        <td>Class <code>.class</code></td>
+                        <td>10</td>
+                        <td>4th</td>
+                    </tr>
+                    <tr>
+                        <td>Element <code>p</code></td>
+                        <td>1</td>
+                        <td>5th</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>Colors & Fonts</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎨 Colors & Typography</div>
+                    <pre><code><span class="cmt">/* Color Formats */</span>
+<span class="prop">.box</span> {
+    <span class="attr">color</span>: <span class="val">red</span>;                    <span class="cmt">/* Named */</span>
+    <span class="attr">color</span>: <span class="val">#ff6b6b</span>;               <span class="cmt">/* Hex */</span>
+    <span class="attr">color</span>: <span class="val">rgb(255, 107, 107)</span>;     <span class="cmt">/* RGB */</span>
+    <span class="attr">color</span>: <span class="val">rgba(255, 107, 107, 0.5)</span>;<span class="cmt">/* RGB + opacity */</span>
+    <span class="attr">color</span>: <span class="val">hsl(0, 100%, 71%)</span>;     <span class="cmt">/* HSL */</span>
+}
+
+<span class="cmt">/* Gradients */</span>
+<span class="prop">.gradient</span> {
+    <span class="attr">background</span>: <span class="val">linear-gradient(135deg, #6c5ce7, #a29bfe)</span>;
+    <span class="attr">background</span>: <span class="val">radial-gradient(circle, #ff6b6b, #feca57)</span>;
+}
+
+<span class="cmt">/* Typography */</span>
+<span class="prop">body</span> {
+    <span class="attr">font-family</span>: <span class="val">'Inter', sans-serif</span>;
+    <span class="attr">font-size</span>: <span class="val">16px</span>;       <span class="cmt">/* Base size */</span>
+    <span class="attr">font-weight</span>: <span class="val">400</span>;      <span class="cmt">/* 100-900 */</span>
+    <span class="attr">line-height</span>: <span class="val">1.7</span>;      <span class="cmt">/* Spacing between lines */</span>
+    <span class="attr">letter-spacing</span>: <span class="val">-0.02em</span>;
+    <span class="attr">text-align</span>: <span class="val">center</span>;    <span class="cmt">/* left, right, justify */</span>
+    <span class="attr">text-transform</span>: <span class="val">uppercase</span>; <span class="cmt">/* lowercase, capitalize */</span>
+    <span class="attr">text-decoration</span>: <span class="val">none</span>; <span class="cmt">/* underline, line-through */</span>
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>Box Model — हर element एक box है!</h2>
+                </div>
+                <p>CSS में <strong>हर element एक box</strong> है। इस box के 4 parts हैं:</p>
+                <div class="code-block">
+                    <div class="code-block-title">📦 Box Model</div>
+                    <pre><code><span class="cmt">/*
+  ┌─────────── Margin (बाहरी space) ────────────┐
+  │  ┌──────── Border (किनारा) ──────────┐      │
+  │  │  ┌──── Padding (अंदरी space) ───┐ │      │
+  │  │  │                               │ │      │
+  │  │  │     CONTENT (text/image)      │ │      │
+  │  │  │                               │ │      │
+  │  │  └───────────────────────────────┘ │      │
+  │  └────────────────────────────────────┘      │
+  └──────────────────────────────────────────────┘
+*/</span>
+
+<span class="prop">.box</span> {
+    <span class="attr">width</span>: <span class="val">300px</span>;
+    <span class="attr">padding</span>: <span class="val">20px</span>;          <span class="cmt">/* Content के चारों ओर space */</span>
+    <span class="attr">border</span>: <span class="val">2px solid #6c5ce7</span>; <span class="cmt">/* Border */</span>
+    <span class="attr">margin</span>: <span class="val">16px</span>;           <span class="cmt">/* बाहरी space */</span>
+    <span class="attr">border-radius</span>: <span class="val">12px</span>;   <span class="cmt">/* Rounded corners */</span>
+
+    <span class="cmt">/* ⚡ IMPORTANT: box-sizing */</span>
+    <span class="attr">box-sizing</span>: <span class="val">border-box</span>; <span class="cmt">/* width में padding+border include */</span>
+}
+
+<span class="cmt">/* Shorthand: top right bottom left */</span>
+<span class="prop">.box2</span> {
+    <span class="attr">margin</span>: <span class="val">10px 20px 10px 20px</span>;  <span class="cmt">/* ↑ → ↓ ← */</span>
+    <span class="attr">padding</span>: <span class="val">10px 20px</span>;           <span class="cmt">/* ↕ ↔ */</span>
+}</code></pre>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ हमेशा करो:</strong> <code>* { box-sizing: border-box; }</code> — इसके बिना width
+                        calculation confusing हो जाती है!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>Display & Position</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📐 Display Property</div>
+                    <pre><code><span class="prop">.block</span>    { <span class="attr">display</span>: <span class="val">block</span>; }       <span class="cmt">/* पूरी width, new line (div, p, h1) */</span>
+<span class="prop">.inline</span>   { <span class="attr">display</span>: <span class="val">inline</span>; }      <span class="cmt">/* Text के बीच, width/height नहीं (span, a) */</span>
+<span class="prop">.ib</span>       { <span class="attr">display</span>: <span class="val">inline-block</span>; } <span class="cmt">/* Inline + width/height set कर सकते हैं */</span>
+<span class="prop">.hidden</span>   { <span class="attr">display</span>: <span class="val">none</span>; }        <span class="cmt">/* पूरा छुपाओ */</span>
+<span class="prop">.flex</span>     { <span class="attr">display</span>: <span class="val">flex</span>; }        <span class="cmt">/* Flexbox Layout */</span>
+<span class="prop">.grid</span>     { <span class="attr">display</span>: <span class="val">grid</span>; }        <span class="cmt">/* Grid Layout */</span></code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">📌 Position Property</div>
+                    <pre><code><span class="prop">.static</span>   { <span class="attr">position</span>: <span class="val">static</span>; }   <span class="cmt">/* Default — normal flow */</span>
+<span class="prop">.relative</span> { <span class="attr">position</span>: <span class="val">relative</span>; <span class="attr">top</span>: <span class="val">10px</span>; } <span class="cmt">/* अपनी जगह से shift */</span>
+<span class="prop">.absolute</span> { <span class="attr">position</span>: <span class="val">absolute</span>; <span class="attr">top</span>: <span class="val">0</span>; <span class="attr">right</span>: <span class="val">0</span>; } <span class="cmt">/* Nearest relative parent से */</span>
+<span class="prop">.fixed</span>    { <span class="attr">position</span>: <span class="val">fixed</span>; <span class="attr">top</span>: <span class="val">0</span>; } <span class="cmt">/* Screen पर fix (navbar) */</span>
+<span class="prop">.sticky</span>   { <span class="attr">position</span>: <span class="val">sticky</span>; <span class="attr">top</span>: <span class="val">0</span>; } <span class="cmt">/* Scroll तक normal, फिर fix */</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Flexbox — 1D Layout King 👑</h2>
+                </div>
+                <p>Flexbox items को <strong>एक line</strong> (row या column) में arrange करता है।
+                    <strong>Centering</strong> के लिए best!</p>
+                <div class="code-block">
+                    <div class="code-block-title">🎯 Flexbox — Perfect Center</div>
+                    <pre><code><span class="cmt">/* ⭐ सबसे ज़्यादा use होने वाला code */</span>
+<span class="prop">.center-everything</span> {
+    <span class="attr">display</span>: <span class="val">flex</span>;
+    <span class="attr">justify-content</span>: <span class="val">center</span>;  <span class="cmt">/* Horizontal ↔ */</span>
+    <span class="attr">align-items</span>: <span class="val">center</span>;      <span class="cmt">/* Vertical ↕ */</span>
+    <span class="attr">height</span>: <span class="val">100vh</span>;            <span class="cmt">/* Full screen */</span>
+}
+
+<span class="cmt">/* Navbar: logo left, menu right */</span>
+<span class="prop">.navbar</span> {
+    <span class="attr">display</span>: <span class="val">flex</span>;
+    <span class="attr">justify-content</span>: <span class="val">space-between</span>;
+    <span class="attr">align-items</span>: <span class="val">center</span>;
+}
+
+<span class="cmt">/* Column layout (ऊपर-नीचे stack) */</span>
+<span class="prop">.card</span> {
+    <span class="attr">display</span>: <span class="val">flex</span>;
+    <span class="attr">flex-direction</span>: <span class="val">column</span>;
+    <span class="attr">gap</span>: <span class="val">16px</span>;
+}
+
+<span class="cmt">/* Wrap — items next line पर जाएं */</span>
+<span class="prop">.gallery</span> {
+    <span class="attr">display</span>: <span class="val">flex</span>;
+    <span class="attr">flex-wrap</span>: <span class="val">wrap</span>;
+    <span class="attr">gap</span>: <span class="val">12px</span>;
+}</code></pre>
+                </div>
+
+                <table class="notes-table">
+                    <tr>
+                        <th>Property</th>
+                        <th>क्या करता है?</th>
+                        <th>Common Values</th>
+                    </tr>
+                    <tr>
+                        <td><code>justify-content</code></td>
+                        <td>Main axis alignment</td>
+                        <td>center, space-between, space-evenly</td>
+                    </tr>
+                    <tr>
+                        <td><code>align-items</code></td>
+                        <td>Cross axis alignment</td>
+                        <td>center, flex-start, flex-end, stretch</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-direction</code></td>
+                        <td>Direction</td>
+                        <td>row, column, row-reverse</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex-wrap</code></td>
+                        <td>New line?</td>
+                        <td>nowrap, wrap</td>
+                    </tr>
+                    <tr>
+                        <td><code>gap</code></td>
+                        <td>Items के बीच space</td>
+                        <td>8px, 16px, 1rem</td>
+                    </tr>
+                    <tr>
+                        <td><code>flex: 1</code></td>
+                        <td>Child grows to fill</td>
+                        <td>flex-grow flex-shrink flex-basis</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>CSS Grid — 2D Layout King 👑</h2>
+                </div>
+                <p>Grid items को <strong>rows AND columns</strong> दोनों में arrange करता है। Complex layouts के लिए
+                    best!</p>
+                <div class="code-block">
+                    <div class="code-block-title">📊 Grid Layout</div>
+                    <pre><code><span class="cmt">/* 3-column grid */</span>
+<span class="prop">.grid-container</span> {
+    <span class="attr">display</span>: <span class="val">grid</span>;
+    <span class="attr">grid-template-columns</span>: <span class="val">1fr 1fr 1fr</span>;  <span class="cmt">/* 3 equal columns */</span>
+    <span class="attr">gap</span>: <span class="val">20px</span>;
+}
+
+<span class="cmt">/* Responsive auto-fit (magic!) */</span>
+<span class="prop">.auto-grid</span> {
+    <span class="attr">display</span>: <span class="val">grid</span>;
+    <span class="attr">grid-template-columns</span>: <span class="val">repeat(auto-fit, minmax(300px, 1fr))</span>;
+    <span class="attr">gap</span>: <span class="val">20px</span>;
+}
+
+<span class="cmt">/* Item spanning */</span>
+<span class="prop">.hero-item</span> {
+    <span class="attr">grid-column</span>: <span class="val">1 / 3</span>;  <span class="cmt">/* 2 columns span */</span>
+    <span class="attr">grid-row</span>: <span class="val">1 / 3</span>;     <span class="cmt">/* 2 rows span */</span>
+}</code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>Flexbox vs Grid:</strong> 1 direction (row OR column) = Flexbox। 2 directions (rows AND
+                        columns) = Grid। दोनों साथ भी use होते हैं!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>Animations & Transitions</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">✨ Transitions (Smooth Changes)</div>
+                    <pre><code><span class="prop">.btn</span> {
+    <span class="attr">background</span>: <span class="val">#6c5ce7</span>;
+    <span class="attr">transform</span>: <span class="val">scale(1)</span>;
+    <span class="attr">transition</span>: <span class="val">all 0.3s ease</span>;  <span class="cmt">/* Smooth change */</span>
+}
+
+<span class="prop">.btn:hover</span> {
+    <span class="attr">background</span>: <span class="val">#a29bfe</span>;
+    <span class="attr">transform</span>: <span class="val">scale(1.05)</span>;      <span class="cmt">/* थोड़ा बड़ा */</span>
+    <span class="attr">box-shadow</span>: <span class="val">0 8px 30px rgba(108,92,231,0.4)</span>;
+}</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">🎬 Keyframe Animations</div>
+                    <pre><code><span class="kw">@keyframes</span> <span class="fn">fadeIn</span> {
+    <span class="prop">from</span> { <span class="attr">opacity</span>: <span class="val">0</span>; <span class="attr">transform</span>: <span class="val">translateY(20px)</span>; }
+    <span class="prop">to</span>   { <span class="attr">opacity</span>: <span class="val">1</span>; <span class="attr">transform</span>: <span class="val">translateY(0)</span>; }
+}
+
+<span class="prop">.card</span> {
+    <span class="attr">animation</span>: <span class="val">fadeIn 0.5s ease forwards</span>;
+}
+
+<span class="kw">@keyframes</span> <span class="fn">spin</span> {
+    <span class="prop">0%</span>   { <span class="attr">transform</span>: <span class="val">rotate(0deg)</span>; }
+    <span class="prop">100%</span> { <span class="attr">transform</span>: <span class="val">rotate(360deg)</span>; }
+}
+
+<span class="prop">.loader</span> {
+    <span class="attr">animation</span>: <span class="val">spin 1s linear infinite</span>;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>Responsive Design — हर Device पर Perfect</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📱 Media Queries</div>
+                    <pre><code><span class="cmt">/* Mobile First Approach — Default = Mobile */</span>
+<span class="prop">.container</span> {
+    <span class="attr">padding</span>: <span class="val">16px</span>;
+}
+
+<span class="cmt">/* Tablet (768px+) */</span>
+<span class="kw">@media</span> (<span class="attr">min-width</span>: <span class="val">768px</span>) {
+    <span class="prop">.container</span> { <span class="attr">max-width</span>: <span class="val">720px</span>; <span class="attr">margin</span>: <span class="val">0 auto</span>; }
+    <span class="prop">.grid</span> { <span class="attr">grid-template-columns</span>: <span class="val">1fr 1fr</span>; }
+}
+
+<span class="cmt">/* Desktop (1024px+) */</span>
+<span class="kw">@media</span> (<span class="attr">min-width</span>: <span class="val">1024px</span>) {
+    <span class="prop">.container</span> { <span class="attr">max-width</span>: <span class="val">1100px</span>; }
+    <span class="prop">.grid</span> { <span class="attr">grid-template-columns</span>: <span class="val">1fr 1fr 1fr</span>; }
+}
+
+<span class="cmt">/* Responsive Units */</span>
+<span class="prop">.text</span> {
+    <span class="attr">font-size</span>: <span class="val">clamp(1rem, 2.5vw, 2rem)</span>; <span class="cmt">/* Auto-scale! */</span>
+    <span class="attr">width</span>: <span class="val">min(90%, 1200px)</span>;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>🤖 AI Tips for CSS</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "इस layout को Flexbox/Grid से बनाओ"</p>
+                    <p>• "Dark theme color palette suggest करो"</p>
+                    <p>• "इस animation को smooth बनाओ"</p>
+                    <p>• "इस CSS को responsive बनाओ"</p>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI की common गलतियाँ:</strong></p>
+                    <p>• <strong>Overuse of !important</strong> — AI बहुत ज़्यादा !important लगा देता है</p>
+                    <p>• <strong>Fixed px values</strong> — rem/em की जगह px use करता है</p>
+                    <p>• <strong>Missing box-sizing</strong> — border-box भूल जाता है</p>
+                    <p>• <strong>No mobile styles</strong> — responsive design miss कर सकता है</p>
+                    <p>• <strong>Excessive nesting</strong> — selectors unnecessarily complex बना देता है</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: Box Model explain करो।</strong></p>
+                    <p>→ Content + Padding + Border + Margin। <code>box-sizing: border-box</code> से width में
+                        padding/border include होता है।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: <code>display: none</code> vs <code>visibility: hidden</code>?</strong></p>
+                    <p>→ <code>none</code> = element हटा देता है (space भी)। <code>hidden</code> = दिखता नहीं लेकिन
+                        space लेता है।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Flexbox vs Grid कब use करें?</strong></p>
+                    <p>→ 1D layout (row या column) = Flexbox। 2D layout (rows + columns) = Grid।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: CSS Specificity order क्या है?</strong></p>
+                    <p>→ !important > inline > #id > .class > element > * (universal)।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: <code>em</code> vs <code>rem</code> क्या है?</strong></p>
+                    <p>→ <code>em</code> = parent element के relative। <code>rem</code> = root (html) element के
+                        relative। Consistent sizing के लिए rem better है।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> एक <strong>Navbar</strong> बनाओ — logo left, links center, button right
+                        (Flexbox)।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> एक <strong>3-column card layout</strong> बनाओ Grid से — image, title,
+                        description, button। Mobile पर 1 column हो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> एक <strong>button</strong> बनाओ जिसमें hover पर color change + scale
+                        animation हो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> पूरा page <strong>dark theme</strong> में design करो — CSS Variables use
+                        करो (<code>--bg</code>, <code>--text</code>, <code>--accent</code>)।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> एक <strong>responsive hero section</strong> बनाओ — desktop पर 2 columns,
+                        mobile पर 1 column।</p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="html-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">HTML Notes</span></a>
+                <a href="js-notes.html" class="nav-btn next"><span class="nav-dir">Next Course →</span><span
+                        class="nav-title">JavaScript Notes</span></a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>
+        const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }); }, { threshold: 0.05 });
+        document.querySelectorAll('.chapter').forEach(el => io.observe(el));
+        const chapters = document.querySelectorAll('.chapter'), sideLinks = document.querySelectorAll('.sidebar a');
+        const sObs = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sideLinks.forEach(l => l.classList.remove('active')); const link = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (link) link.classList.add('active'); } }); }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' });
+        chapters.forEach(ch => sObs.observe(ch));
+        document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }); }); });
+    </script>
+</body>
+
+</html>
