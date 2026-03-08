@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="SQL Complete Notes in Hindi — SELECT, JOIN, INSERT, UPDATE, Indexes, Normalization, Transactions सब detail में!">
+    <title>SQL Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">🗄️</span>
+                <h1>SQL Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. SQL क्या है?</a></li>
+                <li><a href="#ch2">2. Database & Tables</a></li>
+                <li><a href="#ch3">3. SELECT Queries</a></li>
+                <li><a href="#ch4">4. WHERE & Filtering</a></li>
+                <li><a href="#ch5">5. INSERT, UPDATE, DELETE</a></li>
+                <li><a href="#ch6">6. JOINs</a></li>
+                <li><a href="#ch7">7. Aggregate Functions</a></li>
+                <li><a href="#ch8">8. Subqueries</a></li>
+                <li><a href="#ch9">9. Indexes</a></li>
+                <li><a href="#ch10">10. Normalization</a></li>
+                <li><a href="#ch11">11. AI Tips</a></li>
+                <li><a href="#ch12">12. Interview Qs</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>SQL क्या है? — Introduction</h2>
+                </div>
+                <p><strong>SQL</strong> = <em>Structured Query Language</em>। यह database से बात करने की भाषा है — data
+                    store करना, निकालना, update करना, delete करना — सब SQL से होता है!</p>
+                <ul>
+                    <li><strong>हर application का base</strong> — users, orders, products — सब data SQL database में
+                        रहता है</li>
+                    <li><strong>Backend ज़रूरी</strong> — Node.js, Java, Python — सब SQL use करते हैं</li>
+                    <li><strong>Interviews</strong> — Backend, Data Analyst, Full Stack — सबमें SQL पूछा जाता है</li>
+                    <li><strong>Universal</strong> — MySQL, PostgreSQL, SQLite, SQL Server — syntax लगभग same</li>
+                    <li><strong>Data Analysis</strong> — reports, dashboards, business intelligence</li>
+                </ul>
+                <div class="info-box note">
+                    <p><strong>💡 SQL vs NoSQL:</strong> SQL = structured data (tables, rows) — MySQL, PostgreSQL। NoSQL
+                        = unstructured/flexible — MongoDB, Firebase। ज़्यादातर apps SQL use करते हैं!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>Database & Tables बनाना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📦 Database & Table Creation</div>
+                    <pre><code><span class="cmt">-- Database बनाना</span>
+<span class="kw">CREATE DATABASE</span> <span class="fn">isha_school</span>;
+<span class="kw">USE</span> <span class="fn">isha_school</span>;
+
+<span class="cmt">-- Table बनाना</span>
+<span class="kw">CREATE TABLE</span> <span class="fn">students</span> (
+    <span class="prop">id</span>      <span class="val">INT</span> <span class="kw">PRIMARY KEY AUTO_INCREMENT</span>,
+    <span class="prop">name</span>    <span class="val">VARCHAR(100)</span> <span class="kw">NOT NULL</span>,
+    <span class="prop">email</span>   <span class="val">VARCHAR(150)</span> <span class="kw">UNIQUE</span>,
+    <span class="prop">age</span>     <span class="val">INT</span>,
+    <span class="prop">city</span>    <span class="val">VARCHAR(50)</span> <span class="kw">DEFAULT</span> <span class="val">'Unknown'</span>,
+    <span class="prop">created</span> <span class="val">TIMESTAMP</span> <span class="kw">DEFAULT CURRENT_TIMESTAMP</span>
+);
+
+<span class="cmt">-- Table structure देखें</span>
+<span class="kw">DESCRIBE</span> <span class="fn">students</span>;
+<span class="kw">SHOW TABLES</span>;</code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Data Type</th>
+                        <th>Use</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><code>INT</code></td>
+                        <td>Whole numbers</td>
+                        <td>age, id, quantity</td>
+                    </tr>
+                    <tr>
+                        <td><code>VARCHAR(n)</code></td>
+                        <td>Variable text (max n chars)</td>
+                        <td>name, email</td>
+                    </tr>
+                    <tr>
+                        <td><code>TEXT</code></td>
+                        <td>Long text</td>
+                        <td>description, bio</td>
+                    </tr>
+                    <tr>
+                        <td><code>DECIMAL(p,s)</code></td>
+                        <td>Precise decimal</td>
+                        <td>price (10.99)</td>
+                    </tr>
+                    <tr>
+                        <td><code>DATE</code></td>
+                        <td>Date only</td>
+                        <td>2024-01-15</td>
+                    </tr>
+                    <tr>
+                        <td><code>TIMESTAMP</code></td>
+                        <td>Date + Time</td>
+                        <td>2024-01-15 10:30:00</td>
+                    </tr>
+                    <tr>
+                        <td><code>BOOLEAN</code></td>
+                        <td>True/False</td>
+                        <td>is_active</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>SELECT — Data निकालना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔍 SELECT Queries</div>
+                    <pre><code><span class="cmt">-- सब columns</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Specific columns</span>
+<span class="kw">SELECT</span> <span class="prop">name</span>, <span class="prop">email</span>, <span class="prop">city</span> <span class="kw">FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Alias (rename column)</span>
+<span class="kw">SELECT</span> <span class="prop">name</span> <span class="kw">AS</span> <span class="val">'Student Name'</span>, <span class="prop">age</span> <span class="kw">AS</span> <span class="val">'उम्र'</span> <span class="kw">FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Unique values only</span>
+<span class="kw">SELECT DISTINCT</span> <span class="prop">city</span> <span class="kw">FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Limit results</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">LIMIT</span> <span class="num">5</span>;
+
+<span class="cmt">-- Order by (sort)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">ORDER BY</span> <span class="prop">age</span> <span class="kw">DESC</span>;
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">ORDER BY</span> <span class="prop">name</span> <span class="kw">ASC</span>;</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>WHERE — Filtering</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎯 WHERE Clause</div>
+                    <pre><code><span class="cmt">-- Exact match</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">city</span> = <span class="val">'Delhi'</span>;
+
+<span class="cmt">-- Comparison</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">age</span> >= <span class="num">18</span>;
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">age</span> <span class="kw">BETWEEN</span> <span class="num">18</span> <span class="kw">AND</span> <span class="num">25</span>;
+
+<span class="cmt">-- Multiple conditions</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">city</span> = <span class="val">'Delhi'</span> <span class="kw">AND</span> <span class="prop">age</span> > <span class="num">20</span>;
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">city</span> = <span class="val">'Delhi'</span> <span class="kw">OR</span> <span class="prop">city</span> = <span class="val">'Mumbai'</span>;
+
+<span class="cmt">-- IN (list match)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">city</span> <span class="kw">IN</span> (<span class="val">'Delhi'</span>, <span class="val">'Mumbai'</span>, <span class="val">'Pune'</span>);
+
+<span class="cmt">-- LIKE (pattern match)</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">name</span> <span class="kw">LIKE</span> <span class="val">'A%'</span>;   <span class="cmt">-- A से शुरू</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">name</span> <span class="kw">LIKE</span> <span class="val">'%kumar'</span>; <span class="cmt">-- kumar पर end</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">email</span> <span class="kw">LIKE</span> <span class="val">'%@gmail%'</span>;
+
+<span class="cmt">-- NULL check</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">email</span> <span class="kw">IS NULL</span>;
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">email</span> <span class="kw">IS NOT NULL</span>;</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>INSERT, UPDATE, DELETE</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">✏️ Data Modify करना</div>
+                    <pre><code><span class="cmt">-- INSERT: Data डालना</span>
+<span class="kw">INSERT INTO</span> <span class="fn">students</span> (<span class="prop">name</span>, <span class="prop">email</span>, <span class="prop">age</span>, <span class="prop">city</span>)
+<span class="kw">VALUES</span> (<span class="val">'Anshu'</span>, <span class="val">'anshu@email.com'</span>, <span class="num">20</span>, <span class="val">'Delhi'</span>);
+
+<span class="cmt">-- Multiple rows insert</span>
+<span class="kw">INSERT INTO</span> <span class="fn">students</span> (<span class="prop">name</span>, <span class="prop">age</span>, <span class="prop">city</span>) <span class="kw">VALUES</span>
+    (<span class="val">'Priya'</span>, <span class="num">22</span>, <span class="val">'Mumbai'</span>),
+    (<span class="val">'Rahul'</span>, <span class="num">21</span>, <span class="val">'Pune'</span>),
+    (<span class="val">'Sneha'</span>, <span class="num">19</span>, <span class="val">'Delhi'</span>);
+
+<span class="cmt">-- UPDATE: Data बदलना</span>
+<span class="kw">UPDATE</span> <span class="fn">students</span> <span class="kw">SET</span> <span class="prop">age</span> = <span class="num">21</span> <span class="kw">WHERE</span> <span class="prop">name</span> = <span class="val">'Anshu'</span>;
+<span class="kw">UPDATE</span> <span class="fn">students</span> <span class="kw">SET</span> <span class="prop">city</span> = <span class="val">'Bangalore'</span>, <span class="prop">age</span> = <span class="num">23</span> <span class="kw">WHERE</span> <span class="prop">id</span> = <span class="num">2</span>;
+
+<span class="cmt">-- DELETE: Data हटाना</span>
+<span class="kw">DELETE FROM</span> <span class="fn">students</span> <span class="kw">WHERE</span> <span class="prop">id</span> = <span class="num">5</span>;
+<span class="cmt">-- ⚠️ WHERE नहीं दिया तो सारा data delete हो जाएगा!</span></code></pre>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ Golden Rule:</strong> UPDATE और DELETE में <strong>WHERE clause भूलना मत!</strong>
+                        बिना WHERE = सारा data affect होगा!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>JOINs — Tables को जोड़ना</h2>
+                </div>
+                <p>Real apps में data multiple tables में होता है। JOIN से tables combine करते हैं:</p>
+                <div class="code-block">
+                    <div class="code-block-title">🔗 SQL JOINs</div>
+                    <pre><code><span class="cmt">-- Tables setup</span>
+<span class="cmt">-- students: id, name, city</span>
+<span class="cmt">-- marks:    id, student_id, subject, score</span>
+
+<span class="cmt">-- INNER JOIN: दोनों tables में match हो</span>
+<span class="kw">SELECT</span> <span class="prop">s.name</span>, <span class="prop">m.subject</span>, <span class="prop">m.score</span>
+<span class="kw">FROM</span> <span class="fn">students</span> <span class="prop">s</span>
+<span class="kw">INNER JOIN</span> <span class="fn">marks</span> <span class="prop">m</span> <span class="kw">ON</span> <span class="prop">s.id</span> = <span class="prop">m.student_id</span>;
+
+<span class="cmt">-- LEFT JOIN: Left table के सब rows + matched right</span>
+<span class="kw">SELECT</span> <span class="prop">s.name</span>, <span class="prop">m.score</span>
+<span class="kw">FROM</span> <span class="fn">students</span> <span class="prop">s</span>
+<span class="kw">LEFT JOIN</span> <span class="fn">marks</span> <span class="prop">m</span> <span class="kw">ON</span> <span class="prop">s.id</span> = <span class="prop">m.student_id</span>;
+<span class="cmt">-- No marks? score = NULL</span>
+
+<span class="cmt">-- RIGHT JOIN: Right table के सब rows + matched left</span>
+<span class="kw">SELECT</span> <span class="prop">s.name</span>, <span class="prop">m.score</span>
+<span class="kw">FROM</span> <span class="fn">students</span> <span class="prop">s</span>
+<span class="kw">RIGHT JOIN</span> <span class="fn">marks</span> <span class="prop">m</span> <span class="kw">ON</span> <span class="prop">s.id</span> = <span class="prop">m.student_id</span>;</code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>JOIN Type</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>INNER JOIN</td>
+                        <td>सिर्फ matching rows दोनों tables से</td>
+                    </tr>
+                    <tr>
+                        <td>LEFT JOIN</td>
+                        <td>Left table के सब rows + right matched</td>
+                    </tr>
+                    <tr>
+                        <td>RIGHT JOIN</td>
+                        <td>Right table के सब rows + left matched</td>
+                    </tr>
+                    <tr>
+                        <td>FULL OUTER JOIN</td>
+                        <td>दोनों tables के सब rows</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Aggregate Functions — GROUP BY</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📊 Aggregation</div>
+                    <pre><code><span class="cmt">-- Count</span>
+<span class="kw">SELECT COUNT</span>(*) <span class="kw">AS</span> <span class="val">total</span> <span class="kw">FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Sum, Average, Min, Max</span>
+<span class="kw">SELECT
+    SUM</span>(<span class="prop">score</span>) <span class="kw">AS</span> <span class="val">total</span>,
+    <span class="kw">AVG</span>(<span class="prop">score</span>) <span class="kw">AS</span> <span class="val">average</span>,
+    <span class="kw">MIN</span>(<span class="prop">score</span>) <span class="kw">AS</span> <span class="val">minimum</span>,
+    <span class="kw">MAX</span>(<span class="prop">score</span>) <span class="kw">AS</span> <span class="val">maximum</span>
+<span class="kw">FROM</span> <span class="fn">marks</span>;
+
+<span class="cmt">-- GROUP BY: city wise student count</span>
+<span class="kw">SELECT</span> <span class="prop">city</span>, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> <span class="val">count</span>
+<span class="kw">FROM</span> <span class="fn">students</span>
+<span class="kw">GROUP BY</span> <span class="prop">city</span>
+<span class="kw">ORDER BY</span> <span class="val">count</span> <span class="kw">DESC</span>;
+
+<span class="cmt">-- HAVING: group filter (WHERE groups ke liye)</span>
+<span class="kw">SELECT</span> <span class="prop">city</span>, <span class="kw">COUNT</span>(*) <span class="kw">AS</span> <span class="val">cnt</span>
+<span class="kw">FROM</span> <span class="fn">students</span>
+<span class="kw">GROUP BY</span> <span class="prop">city</span>
+<span class="kw">HAVING</span> <span class="val">cnt</span> > <span class="num">5</span>;
+
+<span class="cmt">/*
+ * ⭐ Execution Order:
+ * FROM → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+ */</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>Subqueries — Query के अंदर Query</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔄 Subqueries</div>
+                    <pre><code><span class="cmt">-- Average से ज़्यादा marks वाले students</span>
+<span class="kw">SELECT</span> <span class="prop">name</span>, <span class="prop">score</span> <span class="kw">FROM</span> <span class="fn">marks</span>
+<span class="kw">WHERE</span> <span class="prop">score</span> > (<span class="kw">SELECT AVG</span>(<span class="prop">score</span>) <span class="kw">FROM</span> <span class="fn">marks</span>);
+
+<span class="cmt">-- Students जिन्होंने marks table में entry दी</span>
+<span class="kw">SELECT</span> * <span class="kw">FROM</span> <span class="fn">students</span>
+<span class="kw">WHERE</span> <span class="prop">id</span> <span class="kw">IN</span> (<span class="kw">SELECT DISTINCT</span> <span class="prop">student_id</span> <span class="kw">FROM</span> <span class="fn">marks</span>);
+
+<span class="cmt">-- EXISTS (check if subquery returns rows)</span>
+<span class="kw">SELECT</span> <span class="prop">name</span> <span class="kw">FROM</span> <span class="fn">students</span> <span class="prop">s</span>
+<span class="kw">WHERE EXISTS</span> (
+    <span class="kw">SELECT</span> <span class="num">1</span> <span class="kw">FROM</span> <span class="fn">marks</span> <span class="prop">m</span>
+    <span class="kw">WHERE</span> <span class="prop">m.student_id</span> = <span class="prop">s.id</span>
+);</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>Indexes — Speed बढ़ाओ</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">⚡ Indexes</div>
+                    <pre><code><span class="cmt">-- Index बनाना (search fast करता है)</span>
+<span class="kw">CREATE INDEX</span> <span class="fn">idx_name</span> <span class="kw">ON</span> <span class="fn">students</span>(<span class="prop">name</span>);
+<span class="kw">CREATE INDEX</span> <span class="fn">idx_city</span> <span class="kw">ON</span> <span class="fn">students</span>(<span class="prop">city</span>);
+
+<span class="cmt">-- Unique Index (duplicate values allowed नहीं)</span>
+<span class="kw">CREATE UNIQUE INDEX</span> <span class="fn">idx_email</span> <span class="kw">ON</span> <span class="fn">students</span>(<span class="prop">email</span>);
+
+<span class="cmt">-- Indexes देखो</span>
+<span class="kw">SHOW INDEX FROM</span> <span class="fn">students</span>;
+
+<span class="cmt">-- Index हटाओ</span>
+<span class="kw">DROP INDEX</span> <span class="fn">idx_name</span> <span class="kw">ON</span> <span class="fn">students</span>;</code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>💡 Index कब लगाएं:</strong> WHERE, JOIN, ORDER BY में जो columns frequently आते हैं।
+                        लेकिन ज़्यादा indexes = slow INSERT/UPDATE!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>Normalization — Data Organize करना</h2>
+                </div>
+                <p>Normalization = data redundancy (दोहराव) कम करना और consistency बढ़ाना:</p>
+                <table class="notes-table">
+                    <tr>
+                        <th>Normal Form</th>
+                        <th>Rule</th>
+                        <th>Example</th>
+                    </tr>
+                    <tr>
+                        <td><strong>1NF</strong></td>
+                        <td>हर cell में single value</td>
+                        <td>skills = "HTML,CSS" ❌ → अलग rows बनाओ</td>
+                    </tr>
+                    <tr>
+                        <td><strong>2NF</strong></td>
+                        <td>1NF + No partial dependency</td>
+                        <td>Non-key columns पूरी primary key पर depend</td>
+                    </tr>
+                    <tr>
+                        <td><strong>3NF</strong></td>
+                        <td>2NF + No transitive dependency</td>
+                        <td>Non-key column दूसरे non-key पर depend न करे</td>
+                    </tr>
+                </table>
+                <div class="info-box note">
+                    <p><strong>💡 Practical Rule:</strong> ज़्यादातर apps 3NF enough है। Over-normalization से queries
+                        complex हो जाती हैं और performance गिर सकती है।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>🤖 AI Tips for SQL</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "इस English requirement को SQL query में convert करो"</p>
+                    <p>• "मेरी query optimize करो — slow चल रही है"</p>
+                    <p>• "इस data model के लिए schema design करो"</p>
+                    <p>• "JOIN explain करो visual diagram से"</p>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI की common गलतियाँ:</strong></p>
+                    <p>• <strong>SQL injection risk</strong> — AI string concatenation use कर सकता है, prepared
+                        statements नहीं</p>
+                    <p>• <strong>Performance issues</strong> — SELECT * हर जगह, indexes ignore</p>
+                    <p>• <strong>DELETE बिना WHERE</strong> — dangerous! सारा data delete हो सकता है</p>
+                    <p>• <strong>Wrong JOIN type</strong> — LEFT vs INNER confusion</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: WHERE vs HAVING difference?</strong></p>
+                    <p>→ WHERE rows filter करता है (GROUP BY से पहले)। HAVING groups filter करता है (GROUP BY के बाद)।
+                    </p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: INNER JOIN vs LEFT JOIN?</strong></p>
+                    <p>→ INNER = सिर्फ matching rows। LEFT = left table के सब rows + right matched (no match = NULL)।
+                    </p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Primary Key vs Foreign Key?</strong></p>
+                    <p>→ Primary Key = unique identifier (NOT NULL, unique)। Foreign Key = दूसरी table की primary key
+                        reference।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: Index क्यों use करते हैं?</strong></p>
+                    <p>→ SELECT queries fast करने के लिए। लेकिन INSERT/UPDATE slow हो सकते हैं। Trade-off!</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: DELETE vs TRUNCATE vs DROP?</strong></p>
+                    <p>→ DELETE = rows delete (WHERE possible, rollback possible)। TRUNCATE = सब rows delete (fast, no
+                        rollback)। DROP = पूरी table delete।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> <strong>students table</strong> बनाओ और 10 rows insert करो। फिर
+                        city-wise count query लिखो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> 2 tables बनाओ (<strong>orders + products</strong>), JOIN करके "customer
+                        name + product name + price" दिखाओ।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> एक query लिखो जो <strong>average marks से ज़्यादा</strong> वाले students
+                        दिखाए (subquery)।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> <strong>Employee table</strong> बनाओ — department-wise highest salary
+                        find करो (GROUP BY + MAX)।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> <strong>E-commerce schema</strong> design करो — users, products, orders,
+                        order_items tables with foreign keys।</p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="dsa-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">DSA Notes</span></a>
+                <a href="llm-notes.html" class="nav-btn next"><span class="nav-dir">Next Course →</span><span
+                        class="nav-title">LLM / AI Notes</span></a>
+            </div>
+        </div>
+    </div>
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.05 }); document.querySelectorAll('.chapter').forEach(el => io.observe(el)); const chs = document.querySelectorAll('.chapter'), sls = document.querySelectorAll('.sidebar a'); const so = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sls.forEach(l => l.classList.remove('active')); const l = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (l) l.classList.add('active') } }) }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }); chs.forEach(c => so.observe(c)); document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }) }) });</script>
+</body>
+
+</html>
