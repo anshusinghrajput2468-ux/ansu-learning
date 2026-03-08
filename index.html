@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Ansu — एक Premium Learning Platform जहाँ HTML, CSS, JavaScript, Java और LLM के complete notes हिंदी में उपलब्ध हैं। पढ़ें, सीखें, और expert बनें!">
+    <meta name="keywords"
+        content="HTML Notes, CSS Notes, JavaScript Tutorial, Java Course, LLM Course, Hindi Programming">
+    <title>Ansu — Learn Programming in Hindi 🚀</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="bg-effects">
+        <div class="glow glow-1"></div>
+        <div class="glow glow-2"></div>
+        <div class="glow glow-3"></div>
+    </div>
+
+    <header id="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Ansu</span>
+            </a>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#why-isha">Why Ansu?</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-btn" id="mobile-btn" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== HERO ===== -->
+        <section class="hero">
+            <div class="container hero-inner">
+                <div class="hero-content">
+                    <div class="hero-badge">🎓 Free • Hindi • Beginner Friendly</div>
+                    <h1>Programming सीखो<br><span class="gradient-text">हिंदी में, बिल्कुल Free!</span></h1>
+                    <p class="hero-desc">HTML, CSS, JavaScript, Java, DSA, SQL और LLM — सब कुछ <strong>एक जगह</strong>।
+                        हर topic detail में explain किया गया है ताकि आप <strong>zero से hero</strong> बन सकें।</p>
+                    <div class="hero-actions">
+                        <a href="#courses" class="btn btn-primary">📚 Courses देखें</a>
+                        <a href="#features" class="btn btn-ghost">✨ Features</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-num">7</span>
+                            <span class="stat-label">Complete Courses</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">150+</span>
+                            <span class="stat-label">Topics Covered</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat-item">
+                            <span class="stat-num">∞</span>
+                            <span class="stat-label">Practice Examples</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-window">
+                        <div class="code-titlebar">
+                            <div class="dots"><span></span><span></span><span></span></div>
+                            <span class="code-filename">learn.js</span>
+                        </div>
+                        <pre class="code-body"><code><span class="c-keyword">const</span> <span class="c-var">student</span> = {
+  <span class="c-prop">name</span>: <span class="c-str">"Anshu"</span>,
+  <span class="c-prop">platform</span>: <span class="c-str">"Ansu"</span>,
+  <span class="c-prop">learning</span>: [
+    <span class="c-str">"HTML"</span>, <span class="c-str">"CSS"</span>,
+    <span class="c-str">"JavaScript"</span>,
+    <span class="c-str">"Java"</span>, <span class="c-str">"LLM"</span>
+  ],
+  <span class="c-prop">status</span>: <span class="c-str">"Becoming Expert 🚀"</span>
+};
+
+<span class="c-keyword">function</span> <span class="c-func">startLearning</span>() {
+  <span class="c-keyword">return</span> <span class="c-str">"Let's code! 💪"</span>;
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COURSES ===== -->
+        <section id="courses" class="courses-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">📚 Courses</span>
+                    <h2>अपना Course चुनें</h2>
+                    <p>हर course को <strong>beginner to advanced</strong> level तक cover किया गया है। Hindi में पूरा
+                        explanation!</p>
+                </div>
+
+                <div class="courses-grid">
+
+                    <!-- HTML Course -->
+                    <a href="html-notes.html" class="course-card" data-color="orange">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">🏗️</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Foundation</div>
+                            <h3>HTML</h3>
+                            <p>वेब का ढांचा — Tags, Attributes, Forms, Tables, Semantic HTML, और बहुत कुछ!</p>
+                            <div class="course-meta">
+                                <span>📖 15+ Chapters</span>
+                                <span>⏱️ Beginner</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- CSS Course -->
+                    <a href="css-notes.html" class="course-card" data-color="blue">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">🎨</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Styling</div>
+                            <h3>CSS</h3>
+                            <p>Design की दुनिया — Selectors, Box Model, Flexbox, Grid, Animations, Responsive!</p>
+                            <div class="course-meta">
+                                <span>📖 18+ Chapters</span>
+                                <span>⏱️ Beginner-Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- JavaScript Course -->
+                    <a href="js-notes.html" class="course-card" data-color="yellow">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">⚡</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Logic & Interactivity</div>
+                            <h3>JavaScript</h3>
+                            <p>वेब को जान दो — Variables, Functions, DOM, Events, Arrays, Objects, Async/Await!</p>
+                            <div class="course-meta">
+                                <span>📖 22+ Chapters</span>
+                                <span>⏱️ Beginner-Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- Java Course -->
+                    <a href="java-notes.html" class="course-card" data-color="red">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">☕</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Backend & OOP</div>
+                            <h3>Java</h3>
+                            <p>Industry की भाषा — OOP, Classes, Inheritance, Collections, Multithreading!</p>
+                            <div class="course-meta">
+                                <span>📖 20+ Chapters</span>
+                                <span>⏱️ Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- LLM Course -->
+                    <a href="llm-notes.html" class="course-card" data-color="purple">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">🤖</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">AI & Future</div>
+                            <h3>LLM (AI)</h3>
+                            <p>AI की दुनिया — LLMs कैसे काम करते हैं, Prompt Engineering, APIs, Fine-tuning!</p>
+                            <div class="course-meta">
+                                <span>📖 12+ Chapters</span>
+                                <span>⏱️ All Levels</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- DSA Course -->
+                    <a href="dsa-notes.html" class="course-card" data-color="green">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">🧠</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Problem Solving</div>
+                            <h3>DSA</h3>
+                            <p>Data Structures & Algorithms — Arrays, Linked Lists, Trees, Sorting, Searching,
+                                Recursion!</p>
+                            <div class="course-meta">
+                                <span>📖 20+ Chapters</span>
+                                <span>⏱️ Intermediate-Advanced</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                    <!-- SQL Course -->
+                    <a href="sql-notes.html" class="course-card" data-color="cyan">
+                        <div class="course-icon-wrap">
+                            <div class="course-icon">🗄️</div>
+                        </div>
+                        <div class="course-content">
+                            <div class="course-tag">Database</div>
+                            <h3>SQL (Database)</h3>
+                            <p>Data की दुनिया — SELECT, JOIN, INSERT, Indexes, Normalization, Transactions!</p>
+                            <div class="course-meta">
+                                <span>📖 15+ Chapters</span>
+                                <span>⏱️ Beginner-Intermediate</span>
+                            </div>
+                        </div>
+                        <div class="course-arrow">→</div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section id="features" class="features-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">✨ Features</span>
+                    <h2>Ansu क्यों खास है?</h2>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🇮🇳</div>
+                        <h3>पूरा हिंदी में</h3>
+                        <p>हर concept हिंदी में समझाया गया है — English terms के साथ, ताकि दोनों भाषाएं मजबूत हों।</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">💻</div>
+                        <h3>Code Examples</h3>
+                        <p>हर topic के साथ real code examples दिए गए हैं जो आप copy करके practice कर सकते हैं।</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+                        <h3>Visual Diagrams</h3>
+                        <p>Complex concepts को visual diagrams और tables से समझाया गया है — देखो और समझो!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🎯</div>
+                        <h3>Zero to Hero</h3>
+                        <p>बिल्कुल basic से शुरू — कोई prior knowledge ज़रूरी नहीं। Step by step आगे बढ़ें।</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🆓</div>
+                        <h3>100% Free</h3>
+                        <p>कोई login नहीं, कोई payment नहीं, कोई ads नहीं — बस खोलो और पढ़ना शुरू करो!</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📱</div>
+                        <h3>Mobile Friendly</h3>
+                        <p>Phone, tablet, laptop — किसी भी device पर perfectly काम करता है।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== LEARNING PATH ===== -->
+        <section id="why-isha" class="path-section">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">🗺️ Learning Path</span>
+                    <h2>किस order में पढ़ें?</h2>
+                </div>
+                <div class="path-timeline">
+                    <div class="path-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>🏗️ HTML पहले</h3>
+                            <p>वेब का foundation — बिना HTML के कुछ नहीं बनता। Tags, structure, forms सीखें।</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>🎨 फिर CSS</h3>
+                            <p>HTML को सुंदर बनाएं — colors, layouts, animations सीखें।</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>⚡ JavaScript</h3>
+                            <p>Website को interactive बनाएं — buttons, forms, dynamic content!</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>☕ Java</h3>
+                            <p>Backend और OOP सीखें — industry की सबसे popular भाषा।</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>🧠 DSA</h3>
+                            <p>Problem solving skills — Arrays, Trees, Graphs, Dynamic Programming!</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">6</div>
+                        <div class="step-content">
+                            <h3>🗄️ SQL (Database)</h3>
+                            <p>Data store करना सीखें — queries, joins, indexes!</p>
+                        </div>
+                    </div>
+                    <div class="path-connector"></div>
+                    <div class="path-step">
+                        <div class="step-number">7</div>
+                        <div class="step-content">
+                            <h3>🤖 LLM / AI</h3>
+                            <p>Future technology — AI कैसे काम करता है, prompt engineering, और APIs!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Ansu</span>
+                <p>Programming सीखने का सबसे आसान तरीका ❤️</p>
+            </div>
+            <div class="footer-links">
+                <h4>Courses</h4>
+                <ul>
+                    <li><a href="html-notes.html">HTML Notes</a></li>
+                    <li><a href="css-notes.html">CSS Notes</a></li>
+                    <li><a href="js-notes.html">JavaScript Notes</a></li>
+                    <li><a href="java-notes.html">Java Notes</a></li>
+                    <li><a href="dsa-notes.html">DSA Notes</a></li>
+                    <li><a href="sql-notes.html">SQL Notes</a></li>
+                    <li><a href="llm-notes.html">LLM / AI Notes</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="https://developer.mozilla.org" target="_blank">MDN Docs ↗</a></li>
+                    <li><a href="https://www.w3schools.com" target="_blank">W3Schools ↗</a></li>
+                    <li><a href="https://javascript.info" target="_blank">JavaScript.info ↗</a></li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Ansu Learning Platform | Built by Anshu with ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => header.classList.toggle('scrolled', scrollY > 60));
+
+        // Mobile menu
+        const mBtn = document.getElementById('mobile-btn');
+        const nav = document.getElementById('main-nav');
+        mBtn.addEventListener('click', () => {
+            mBtn.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+
+        // Scroll reveal
+        const io = new IntersectionObserver(es => {
+            es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+        }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.course-card, .feature-card, .path-step, .intro-card').forEach(el => io.observe(el));
+
+        // Typewriter effect for hero badge
+        const badge = document.querySelector('.hero-badge');
+        if (badge) badge.classList.add('visible');
+    </script>
+
+</body>
+
+</html>
