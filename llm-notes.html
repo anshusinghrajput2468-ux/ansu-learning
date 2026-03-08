@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="LLM & AI Complete Notes in Hindi — LLMs कैसे काम करते हैं, Prompt Engineering, APIs, Fine-tuning, RAG सब detail में!">
+    <title>LLM / AI Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">🤖</span>
+                <h1>LLM / AI Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. AI & LLM क्या है?</a></li>
+                <li><a href="#ch2">2. LLMs कैसे काम करते हैं?</a></li>
+                <li><a href="#ch3">3. Prompt Engineering</a></li>
+                <li><a href="#ch4">4. APIs — OpenAI, Gemini</a></li>
+                <li><a href="#ch5">5. Tokens & Parameters</a></li>
+                <li><a href="#ch6">6. RAG — Retrieval</a></li>
+                <li><a href="#ch7">7. Fine-Tuning</a></li>
+                <li><a href="#ch8">8. AI Tools for Devs</a></li>
+                <li><a href="#ch9">9. Limitations</a></li>
+                <li><a href="#ch10">10. Ethics & Safety</a></li>
+                <li><a href="#ch11">11. AI Career Tips</a></li>
+                <li><a href="#ch12">12. Interview Qs</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>AI & LLM क्या है? — Introduction</h2>
+                </div>
+                <p><strong>AI</strong> = <em>Artificial Intelligence</em> — machines को intelligent बनाना।
+                    <strong>LLM</strong> = <em>Large Language Model</em> — AI का एक type जो text समझता और generate करता
+                    है।</p>
+                <h3>AI के Types:</h3>
+                <ul>
+                    <li><strong>Machine Learning (ML)</strong> — data से patterns सीखता है (recommendation, spam filter)
+                    </li>
+                    <li><strong>Deep Learning</strong> — neural networks use करता है (image recognition)</li>
+                    <li><strong>NLP (Natural Language Processing)</strong> — human language समझना (chatbots,
+                        translation)</li>
+                    <li><strong>LLM</strong> — बहुत बड़ा NLP model — ChatGPT, Gemini, Claude, LLaMA</li>
+                    <li><strong>Generative AI</strong> — नया content generate करना (text, image, code, video)</li>
+                </ul>
+                <h3>Popular LLMs:</h3>
+                <table class="notes-table">
+                    <tr>
+                        <th>Model</th>
+                        <th>Company</th>
+                        <th>Use</th>
+                    </tr>
+                    <tr>
+                        <td>GPT-4 / ChatGPT</td>
+                        <td>OpenAI</td>
+                        <td>General purpose, coding, writing</td>
+                    </tr>
+                    <tr>
+                        <td>Gemini</td>
+                        <td>Google DeepMind</td>
+                        <td>Multimodal (text + image + video)</td>
+                    </tr>
+                    <tr>
+                        <td>Claude</td>
+                        <td>Anthropic</td>
+                        <td>Long context, reasoning, safety</td>
+                    </tr>
+                    <tr>
+                        <td>LLaMA</td>
+                        <td>Meta</td>
+                        <td>Open-source, research</td>
+                    </tr>
+                    <tr>
+                        <td>Mistral</td>
+                        <td>Mistral AI</td>
+                        <td>Efficient, open-weight</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>LLMs कैसे काम करते हैं?</h2>
+                </div>
+                <p>LLM basically <strong>next word predict</strong> करता है! बहुत बड़ा data पढ़कर pattern सीखता है:</p>
+                <div class="code-block">
+                    <div class="code-block-title">🧠 Simple Explanation</div>
+                    <pre><code><span class="cmt">// LLM Training Process (simplified):</span>
+
+<span class="cmt">// Step 1: Pre-training — internet का data पढ़ो</span>
+<span class="cmt">//   Books + Wikipedia + Code + Websites = Trillions of words</span>
+
+<span class="cmt">// Step 2: Pattern Learning</span>
+<span class="cmt">//   Input:  "The cat sat on the ___"</span>
+<span class="cmt">//   Model:  "mat" (highest probability: 73%)</span>
+<span class="cmt">//           "chair" (12%), "floor" (8%)...</span>
+
+<span class="cmt">// Step 3: Fine-tuning — specific tasks के लिए train</span>
+<span class="cmt">//   RLHF = Reinforcement Learning from Human Feedback</span>
+<span class="cmt">//   Humans बताते हैं कि कौन सा response better है</span>
+
+<span class="cmt">// Step 4: Inference — user query answer</span>
+<span class="val">"JavaScript में array reverse कैसे करें?"</span>
+<span class="cmt">// → Model word-by-word response generate करता है</span></code></pre>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Key Concepts:</strong></p>
+                    <p>• <strong>Parameters</strong> = model की "memory" (GPT-4 = ~1.8 trillion parameters)</p>
+                    <p>• <strong>Transformer</strong> = architecture जो LLMs use करते हैं (Attention mechanism)</p>
+                    <p>• <strong>Context Window</strong> = एक बार में कितना text process कर सकता है (tokens)</p>
+                    <p>• <strong>Temperature</strong> = creativity level (0 = precise, 1 = creative)</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>Prompt Engineering — AI से सही काम लेना</h2>
+                </div>
+                <p><strong>Prompt Engineering</strong> = AI को सही instructions देना ताकि बेहतर output मिले।</p>
+                <div class="code-block">
+                    <div class="code-block-title">📝 Prompt Techniques</div>
+                    <pre><code><span class="cmt">// ❌ Bad Prompt:</span>
+<span class="val">"code लिखो"</span>
+
+<span class="cmt">// ✅ Good Prompt:</span>
+<span class="val">"JavaScript में एक function लिखो जो array of numbers
+ लेता है और even numbers filter करके sum return करता है।
+ Arrow function use करो, comments दो, और edge cases
+ handle करो (empty array, non-number values)।"</span>
+
+<span class="cmt">// ⭐ Techniques:</span>
+
+<span class="cmt">// 1. Role Prompting</span>
+<span class="val">"तुम एक senior React developer हो। मुझे बताओ..."</span>
+
+<span class="cmt">// 2. Few-Shot (examples दो)</span>
+<span class="val">"Input: 'hello' → Output: 'HELLO'
+ Input: 'world' → Output: ??"</span>
+
+<span class="cmt">// 3. Chain of Thought (step-by-step सोचने कहो)</span>
+<span class="val">"Step by step सोचो और बताओ कि..."</span>
+
+<span class="cmt">// 4. Constraints (limits set करो)</span>
+<span class="val">"5 bullet points में, beginner level, Hindi में..."</span>
+
+<span class="cmt">// 5. Output Format specify करो</span>
+<span class="val">"JSON format में output दो:
+ { name: string, skills: string[] }"</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>💡 Golden Rules:</strong> 1) Be specific (vague मत बोलो) 2) Context दो (कौन हो, क्या
+                        चाहिए) 3) Format बताओ (code, list, table) 4) Examples दो 5) Iterate करो (एक बार में perfect नहीं
+                        होगा)</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>AI APIs — Code से AI Call करना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔌 OpenAI API — JavaScript</div>
+                    <pre><code><span class="cmt">// npm install openai</span>
+<span class="kw">import</span> <span class="fn">OpenAI</span> <span class="kw">from</span> <span class="val">"openai"</span>;
+
+<span class="kw">const</span> <span class="prop">client</span> = <span class="kw">new</span> <span class="fn">OpenAI</span>({
+    <span class="prop">apiKey</span>: <span class="val">"your-api-key"</span>  <span class="cmt">// ⚠️ Never hardcode in production!</span>
+});
+
+<span class="kw">async function</span> <span class="fn">askAI</span>(<span class="prop">question</span>) {
+    <span class="kw">const</span> <span class="prop">response</span> = <span class="kw">await</span> <span class="prop">client</span>.<span class="prop">chat</span>.<span class="prop">completions</span>.<span class="fn">create</span>({
+        <span class="prop">model</span>: <span class="val">"gpt-4"</span>,
+        <span class="prop">messages</span>: [
+            { <span class="prop">role</span>: <span class="val">"system"</span>, <span class="prop">content</span>: <span class="val">"You are a helpful coding tutor."</span> },
+            { <span class="prop">role</span>: <span class="val">"user"</span>, <span class="prop">content</span>: <span class="prop">question</span> }
+        ],
+        <span class="prop">temperature</span>: <span class="num">0.7</span>,      <span class="cmt">// Creativity (0-1)</span>
+        <span class="prop">max_tokens</span>: <span class="num">500</span>        <span class="cmt">// Response limit</span>
+    });
+
+    <span class="kw">return</span> <span class="prop">response</span>.<span class="prop">choices</span>[<span class="num">0</span>].<span class="prop">message</span>.<span class="prop">content</span>;
+}
+
+<span class="fn">askAI</span>(<span class="val">"Binary Search explain in Hindi"</span>)
+    .<span class="fn">then</span>(<span class="prop">answer</span> => <span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">answer</span>));</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">🔌 Google Gemini API</div>
+                    <pre><code><span class="cmt">// npm install @google/generative-ai</span>
+<span class="kw">import</span> { <span class="fn">GoogleGenerativeAI</span> } <span class="kw">from</span> <span class="val">"@google/generative-ai"</span>;
+
+<span class="kw">const</span> <span class="prop">genAI</span> = <span class="kw">new</span> <span class="fn">GoogleGenerativeAI</span>(<span class="val">"your-api-key"</span>);
+<span class="kw">const</span> <span class="prop">model</span> = <span class="prop">genAI</span>.<span class="fn">getGenerativeModel</span>({ <span class="prop">model</span>: <span class="val">"gemini-pro"</span> });
+
+<span class="kw">const</span> <span class="prop">result</span> = <span class="kw">await</span> <span class="prop">model</span>.<span class="fn">generateContent</span>(<span class="val">"Explain OOP in Hindi"</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="prop">result</span>.<span class="prop">response</span>.<span class="fn">text</span>());</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>Tokens & Parameters — Important Concepts</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎛️ Key Parameters</div>
+                    <pre><code><span class="cmt">// Tokens = words/subwords (1 word ≈ 1-3 tokens)</span>
+<span class="val">"Hello, how are you?"</span>  <span class="cmt">// = 6 tokens</span>
+<span class="val">"JavaScript"</span>           <span class="cmt">// = 1-3 tokens</span>
+
+<span class="cmt">// Key API Parameters:</span>
+{
+    <span class="prop">temperature</span>: <span class="num">0.0</span>,   <span class="cmt">// Deterministic (same input = same output)</span>
+    <span class="prop">temperature</span>: <span class="num">0.7</span>,   <span class="cmt">// Balanced (recommended)</span>
+    <span class="prop">temperature</span>: <span class="num">1.0</span>,   <span class="cmt">// Very creative (random)</span>
+
+    <span class="prop">max_tokens</span>: <span class="num">500</span>,    <span class="cmt">// Maximum response length</span>
+    <span class="prop">top_p</span>: <span class="num">0.9</span>,         <span class="cmt">// Nucleus sampling (diversity control)</span>
+
+    <span class="prop">system</span>: <span class="val">"..."</span>,       <span class="cmt">// System prompt (persona/rules)</span>
+    <span class="prop">stop</span>: [<span class="val">"###"</span>],      <span class="cmt">// Stop generation at this string</span>
+}</code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Parameter</th>
+                        <th>Low Value</th>
+                        <th>High Value</th>
+                    </tr>
+                    <tr>
+                        <td>Temperature</td>
+                        <td>Precise, factual</td>
+                        <td>Creative, varied</td>
+                    </tr>
+                    <tr>
+                        <td>Max Tokens</td>
+                        <td>Short response</td>
+                        <td>Long & detailed</td>
+                    </tr>
+                    <tr>
+                        <td>Top P</td>
+                        <td>Focused output</td>
+                        <td>Diverse output</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>RAG — Retrieval Augmented Generation</h2>
+                </div>
+                <p><strong>RAG</strong> = LLM को अपना custom data feed करना ताकि वो relevant answers दे:</p>
+                <div class="code-block">
+                    <div class="code-block-title">📚 RAG Process</div>
+                    <pre><code><span class="cmt">// RAG Pipeline:</span>
+
+<span class="cmt">// Step 1: Document Load</span>
+<span class="cmt">//   अपने PDFs, docs, websites load करो</span>
+
+<span class="cmt">// Step 2: Chunking</span>
+<span class="cmt">//   Documents को छोटे pieces (chunks) में तोड़ो</span>
+
+<span class="cmt">// Step 3: Embeddings</span>
+<span class="cmt">//   Chunks को vectors (numbers) में convert करो</span>
+<span class="cmt">//   Similar meaning = similar vectors</span>
+
+<span class="cmt">// Step 4: Vector Store</span>
+<span class="cmt">//   Vectors को database में store करो (Pinecone, Chroma)</span>
+
+<span class="cmt">// Step 5: Query</span>
+<span class="cmt">//   User: "Company की refund policy क्या है?"</span>
+<span class="cmt">//   → Query vector बनाओ</span>
+<span class="cmt">//   → Similar chunks ढूंढो (semantic search)</span>
+<span class="cmt">//   → Found chunks + user question → LLM</span>
+<span class="cmt">//   → LLM relevant answer generate करता है!</span>
+
+<span class="cmt">// ⭐ Use Cases:</span>
+<span class="cmt">//   - Company chatbot (trained on company docs)</span>
+<span class="cmt">//   - Personal knowledge base</span>
+<span class="cmt">//   - Code documentation Q&A</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>💡 RAG vs Fine-Tuning:</strong> RAG = apna data dynamically attach करो (flexible,
+                        updated)। Fine-tuning = model itself ko train करो (permanent, expensive)। ज़्यादातर cases में
+                        RAG enough है!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Fine-Tuning — Model को Custom Train करना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎯 Fine-Tuning Concept</div>
+                    <pre><code><span class="cmt">// Fine-tuning = Existing model + Your data = Custom model</span>
+
+<span class="cmt">// Training Data Format (JSONL):</span>
+{<span class="val">"messages"</span>: [
+    {<span class="val">"role"</span>: <span class="val">"system"</span>, <span class="val">"content"</span>: <span class="val">"You are a Hindi coding tutor."</span>},
+    {<span class="val">"role"</span>: <span class="val">"user"</span>, <span class="val">"content"</span>: <span class="val">"Array kya hai?"</span>},
+    {<span class="val">"role"</span>: <span class="val">"assistant"</span>, <span class="val">"content"</span>: <span class="val">"Array ek data structure hai..."</span>}
+]}
+
+<span class="cmt">// When to Fine-tune:</span>
+<span class="cmt">// ✅ Specific style/tone चाहिए (Hindi tech content)</span>
+<span class="cmt">// ✅ Domain expertise (medical, legal)</span>
+<span class="cmt">// ✅ Format consistency (always JSON output)</span>
+<span class="cmt">// ❌ ज़्यादातर cases में prompt engineering + RAG काफी है!</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>AI Tools for Developers</h2>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Tool</th>
+                        <th>काम</th>
+                        <th>Free?</th>
+                    </tr>
+                    <tr>
+                        <td><strong>GitHub Copilot</strong></td>
+                        <td>Code autocomplete in VS Code</td>
+                        <td>Students free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ChatGPT</strong></td>
+                        <td>Code explain, debug, generate</td>
+                        <td>GPT-3.5 free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Claude</strong></td>
+                        <td>Long code review, documentation</td>
+                        <td>Limited free</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Gemini</strong></td>
+                        <td>Multimodal + code</td>
+                        <td>Free tier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cursor</strong></td>
+                        <td>AI-first code editor</td>
+                        <td>Free tier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>v0.dev</strong></td>
+                        <td>UI generate from prompt</td>
+                        <td>Free tier</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Perplexity</strong></td>
+                        <td>AI search with citations</td>
+                        <td>Free</td>
+                    </tr>
+                </table>
+                <div class="info-box tip">
+                    <p><strong>💡 Developer Tip:</strong> AI को <em>teacher</em> की तरह use करो, न कि <em>answer
+                            machine</em>। "Explain क्यों" पूछो, सिर्फ "code दो" मत बोलो!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>LLM Limitations — कहाँ गलती करता है?</h2>
+                </div>
+                <ul>
+                    <li><strong>Hallucination</strong> — confident होकर गलत info बताना (fake functions, wrong library
+                        names)</li>
+                    <li><strong>Outdated Info</strong> — training data का cutoff date होता है (latest info नहीं)</li>
+                    <li><strong>Math Weakness</strong> — complex calculations में गलती कर सकता है</li>
+                    <li><strong>Context Limit</strong> — बहुत लंबा code/text process नहीं कर पाता</li>
+                    <li><strong>Bias</strong> — training data में जो biases हैं वो output में आ सकते हैं</li>
+                    <li><strong>No Real Understanding</strong> — patterns follow करता है, truly "समझता" नहीं</li>
+                    <li><strong>Security</strong> — sensitive code/data share करने में risk</li>
+                </ul>
+                <div class="info-box warn">
+                    <p><strong>⚠️ Golden Rule:</strong> AI generated code को <strong>हमेशा review और test</strong> करो!
+                        Blindly copy-paste मत करो। AI = assistant, not replacement।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>Ethics & Safety</h2>
+                </div>
+                <ul>
+                    <li><strong>Plagiarism</strong> — AI generated content को अपना मत बताओ, credits दो</li>
+                    <li><strong>Privacy</strong> — sensitive data (passwords, API keys) AI को मत दो</li>
+                    <li><strong>Verify</strong> — AI generated code/info को verify करो before using</li>
+                    <li><strong>Job Impact</strong> — AI jobs replace नहीं करता, <em>AI-using developers</em> replace
+                        करेंगे non-AI developers को</li>
+                    <li><strong>Deepfakes</strong> — AI generated fake content बनाना unethical है</li>
+                    <li><strong>Bias Awareness</strong> — AI output में bias check करो</li>
+                </ul>
+                <div class="info-box note">
+                    <p><strong>💡 Mindset:</strong> AI एक <strong>power tool</strong> है — chainsaw की तरह। सही use =
+                        productive। गलत use = dangerous। Responsible use सीखो!</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>🚀 AI Career Tips</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>AI Developer बनने के लिए:</strong></p>
+                    <p>• <strong>Python</strong> सीखो — AI/ML का primary language</p>
+                    <p>• <strong>API Integration</strong> — OpenAI, Gemini APIs use करना सीखो</p>
+                    <p>• <strong>Prompt Engineering</strong> — अभी से practice करो</p>
+                    <p>• <strong>RAG + Vector DBs</strong> — Pinecone, ChromaDB, LangChain सीखो</p>
+                    <p>• <strong>Projects</strong> — AI chatbot, code explainer, document Q&A बनाओ</p>
+                    <p>• <strong>Stay Updated</strong> — AI field बहुत fast बदलता है, daily news पढ़ो</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: LLM कैसे काम करता है?</strong></p>
+                    <p>→ Transformer architecture use करता है। Training data से patterns learn करता है। Inference time
+                        पर next token predict करता है।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: RAG क्या है?</strong></p>
+                    <p>→ Retrieval-Augmented Generation। External documents से relevant info retrieve करके LLM को
+                        context देना ताकि accurate answers दे।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Temperature parameter क्या है?</strong></p>
+                    <p>→ Output randomness control करता है। 0 = deterministic/precise। 1 = creative/random। Most cases
+                        में 0.7 good है।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: Hallucination क्या है?</strong></p>
+                    <p>→ LLM confidently गलत information generate करना। Solution: RAG, verification, fact-checking,
+                        lower temperature।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: Fine-tuning vs RAG कब use करें?</strong></p>
+                    <p>→ Fine-tuning = style/behavior change (expensive, permanent)। RAG = knowledge add (cheap,
+                        flexible, updatable)। ज़्यादातर RAG enough।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> <strong>OpenAI API</strong> use करके एक simple chatbot बनाओ (Node.js) —
+                        user question लो, AI response दो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> <strong>5 अलग-अलग prompt techniques</strong> try करो same question पर —
+                        output compare करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> एक <strong>AI code reviewer</strong> बनाओ — user code paste करे, AI bugs
+                        और improvements बताए।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> <strong>RAG system</strong> concept try करो — अपने notes को chunks में
+                        तोड़ो, relevant chunk manually find करो, LLM को context with question दो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> <strong>AI limitations test</strong> करो — 10 tricky questions पूछो जहाँ
+                        AI गलती कर सकता है। Results document करो।</p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="sql-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">SQL Notes</span></a>
+                <a href="index.html" class="nav-btn next"><span class="nav-dir">🏠 Back to Home</span><span
+                        class="nav-title">All Courses</span></a>
+            </div>
+        </div>
+    </div>
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.05 }); document.querySelectorAll('.chapter').forEach(el => io.observe(el)); const chs = document.querySelectorAll('.chapter'), sls = document.querySelectorAll('.sidebar a'); const so = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sls.forEach(l => l.classList.remove('active')); const l = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (l) l.classList.add('active') } }) }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }); chs.forEach(c => so.observe(c)); document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }) }) });</script>
+</body>
+
+</html>
