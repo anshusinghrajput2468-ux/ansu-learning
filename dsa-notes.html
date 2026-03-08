@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="DSA Complete Notes in Hindi — Arrays, Linked Lists, Stacks, Trees, Sorting, Searching, Recursion, Dynamic Programming!">
+    <title>DSA Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">🧠</span>
+                <h1>DSA Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. DSA क्या है?</a></li>
+                <li><a href="#ch2">2. Time Complexity</a></li>
+                <li><a href="#ch3">3. Arrays</a></li>
+                <li><a href="#ch4">4. Strings</a></li>
+                <li><a href="#ch5">5. Linked List</a></li>
+                <li><a href="#ch6">6. Stack & Queue</a></li>
+                <li><a href="#ch7">7. Recursion</a></li>
+                <li><a href="#ch8">8. Sorting</a></li>
+                <li><a href="#ch9">9. Searching</a></li>
+                <li><a href="#ch10">10. Trees</a></li>
+                <li><a href="#ch11">11. AI Tips</a></li>
+                <li><a href="#ch12">12. Interview Qs</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>DSA क्या है? — Introduction</h2>
+                </div>
+                <p><strong>DSA</strong> = <em>Data Structures + Algorithms</em>। यह programming का <strong>सबसे
+                        important topic</strong> है — हर coding interview में पूछा जाता है!</p>
+                <ul>
+                    <li><strong>Data Structure</strong> = data को organize करने का तरीका (Array, LinkedList, Tree...)
+                    </li>
+                    <li><strong>Algorithm</strong> = problem solve करने का step-by-step तरीका (Sort, Search...)</li>
+                    <li><strong>Interviews</strong> — Amazon, Google, Microsoft — सब DSA पूछते हैं</li>
+                    <li><strong>Problem Solving</strong> — logical thinking और optimize करने की skill</li>
+                    <li><strong>Better Code</strong> — efficient programs लिखने की ability</li>
+                </ul>
+                <div class="info-box note">
+                    <p><strong>💡 Tip:</strong> DSA language-independent है! Concept एक बार समझ लो, किसी भी language
+                        (Java, Python, C++) में implement कर सकते हो।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>Time & Space Complexity — Big O</h2>
+                </div>
+                <p>Algorithm कितना <strong>fast</strong> है और कितनी <strong>memory</strong> लेता है — यह measure करती
+                    है Big O notation:</p>
+                <div class="code-block">
+                    <div class="code-block-title">⏱️ Big O Notation</div>
+                    <pre><code><span class="cmt">// O(1) — Constant (सबसे fast ⚡)</span>
+<span class="kw">int</span> <span class="prop">first</span> = <span class="prop">arr</span>[<span class="num">0</span>];  <span class="cmt">// Direct access</span>
+
+<span class="cmt">// O(n) — Linear</span>
+<span class="kw">for</span> (<span class="kw">int</span> <span class="prop">i</span> = <span class="num">0</span>; <span class="prop">i</span> < <span class="prop">n</span>; <span class="prop">i</span>++) { }  <span class="cmt">// n बार चलेगा</span>
+
+<span class="cmt">// O(n²) — Quadratic (slow 🐌)</span>
+<span class="kw">for</span> (<span class="kw">int</span> <span class="prop">i</span> = <span class="num">0</span>; <span class="prop">i</span> < <span class="prop">n</span>; <span class="prop">i</span>++)
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="prop">j</span> = <span class="num">0</span>; <span class="prop">j</span> < <span class="prop">n</span>; <span class="prop">j</span>++) { } <span class="cmt">// n×n बार</span>
+
+<span class="cmt">// O(log n) — Logarithmic (fast! Binary Search)</span>
+<span class="cmt">// हर step में array आधा हो जाता है</span>
+
+<span class="cmt">// O(n log n) — Merge Sort, Quick Sort</span></code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Big O</th>
+                        <th>Name</th>
+                        <th>Example</th>
+                        <th>n=1000 operations</th>
+                    </tr>
+                    <tr>
+                        <td>O(1)</td>
+                        <td>Constant</td>
+                        <td>Array access</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>O(log n)</td>
+                        <td>Logarithmic</td>
+                        <td>Binary Search</td>
+                        <td>~10</td>
+                    </tr>
+                    <tr>
+                        <td>O(n)</td>
+                        <td>Linear</td>
+                        <td>Linear Search</td>
+                        <td>1,000</td>
+                    </tr>
+                    <tr>
+                        <td>O(n log n)</td>
+                        <td>Linearithmic</td>
+                        <td>Merge Sort</td>
+                        <td>~10,000</td>
+                    </tr>
+                    <tr>
+                        <td>O(n²)</td>
+                        <td>Quadratic</td>
+                        <td>Bubble Sort</td>
+                        <td>1,000,000</td>
+                    </tr>
+                    <tr>
+                        <td>O(2ⁿ)</td>
+                        <td>Exponential</td>
+                        <td>Recursion (Fibonacci)</td>
+                        <td>💀</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>Arrays — सबसे Basic Data Structure</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📋 Array Operations (Java)</div>
+                    <pre><code><span class="cmt">// Create Array</span>
+<span class="kw">int</span>[] <span class="prop">nums</span> = {<span class="num">10</span>, <span class="num">20</span>, <span class="num">30</span>, <span class="num">40</span>, <span class="num">50</span>};
+
+<span class="cmt">// Access → O(1)</span>
+<span class="prop">nums</span>[<span class="num">2</span>]  <span class="cmt">// 30</span>
+
+<span class="cmt">// Linear Search → O(n)</span>
+<span class="kw">int</span> <span class="fn">linearSearch</span>(<span class="kw">int</span>[] <span class="prop">arr</span>, <span class="kw">int</span> <span class="prop">target</span>) {
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="prop">i</span> = <span class="num">0</span>; <span class="prop">i</span> < <span class="prop">arr</span>.<span class="prop">length</span>; <span class="prop">i</span>++) {
+        <span class="kw">if</span> (<span class="prop">arr</span>[<span class="prop">i</span>] == <span class="prop">target</span>) <span class="kw">return</span> <span class="prop">i</span>;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;  <span class="cmt">// Not found</span>
+}
+
+<span class="cmt">// Reverse Array → O(n)</span>
+<span class="kw">void</span> <span class="fn">reverse</span>(<span class="kw">int</span>[] <span class="prop">arr</span>) {
+    <span class="kw">int</span> <span class="prop">left</span> = <span class="num">0</span>, <span class="prop">right</span> = <span class="prop">arr</span>.<span class="prop">length</span> - <span class="num">1</span>;
+    <span class="kw">while</span> (<span class="prop">left</span> < <span class="prop">right</span>) {
+        <span class="kw">int</span> <span class="prop">temp</span> = <span class="prop">arr</span>[<span class="prop">left</span>];
+        <span class="prop">arr</span>[<span class="prop">left</span>] = <span class="prop">arr</span>[<span class="prop">right</span>];
+        <span class="prop">arr</span>[<span class="prop">right</span>] = <span class="prop">temp</span>;
+        <span class="prop">left</span>++; <span class="prop">right</span>--;
+    }
+}
+
+<span class="cmt">// Two Pointer Technique — बहुत important! ⭐</span>
+<span class="cmt">// Find pair with given sum in sorted array</span>
+<span class="kw">boolean</span> <span class="fn">pairSum</span>(<span class="kw">int</span>[] <span class="prop">arr</span>, <span class="kw">int</span> <span class="prop">target</span>) {
+    <span class="kw">int</span> <span class="prop">l</span> = <span class="num">0</span>, <span class="prop">r</span> = <span class="prop">arr</span>.<span class="prop">length</span> - <span class="num">1</span>;
+    <span class="kw">while</span> (<span class="prop">l</span> < <span class="prop">r</span>) {
+        <span class="kw">int</span> <span class="prop">sum</span> = <span class="prop">arr</span>[<span class="prop">l</span>] + <span class="prop">arr</span>[<span class="prop">r</span>];
+        <span class="kw">if</span> (<span class="prop">sum</span> == <span class="prop">target</span>) <span class="kw">return</span> <span class="val">true</span>;
+        <span class="kw">else if</span> (<span class="prop">sum</span> < <span class="prop">target</span>) <span class="prop">l</span>++;
+        <span class="kw">else</span> <span class="prop">r</span>--;
+    }
+    <span class="kw">return</span> <span class="val">false</span>;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>Strings — Text as Data</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔤 String Problems</div>
+                    <pre><code><span class="cmt">// Palindrome Check — "madam" ↔ "madam"</span>
+<span class="kw">boolean</span> <span class="fn">isPalindrome</span>(<span class="prop">String</span> <span class="prop">s</span>) {
+    <span class="kw">int</span> <span class="prop">l</span> = <span class="num">0</span>, <span class="prop">r</span> = <span class="prop">s</span>.<span class="fn">length</span>() - <span class="num">1</span>;
+    <span class="kw">while</span> (<span class="prop">l</span> < <span class="prop">r</span>) {
+        <span class="kw">if</span> (<span class="prop">s</span>.<span class="fn">charAt</span>(<span class="prop">l</span>) != <span class="prop">s</span>.<span class="fn">charAt</span>(<span class="prop">r</span>)) <span class="kw">return</span> <span class="val">false</span>;
+        <span class="prop">l</span>++; <span class="prop">r</span>--;
+    }
+    <span class="kw">return</span> <span class="val">true</span>;
+}
+
+<span class="cmt">// Character Frequency Count</span>
+<span class="kw">void</span> <span class="fn">charCount</span>(<span class="prop">String</span> <span class="prop">s</span>) {
+    <span class="fn">HashMap</span>&lt;<span class="prop">Character</span>, <span class="prop">Integer</span>&gt; <span class="prop">map</span> = <span class="kw">new</span> <span class="fn">HashMap</span>&lt;&gt;();
+    <span class="kw">for</span> (<span class="kw">char</span> <span class="prop">c</span> : <span class="prop">s</span>.<span class="fn">toCharArray</span>()) {
+        <span class="prop">map</span>.<span class="fn">put</span>(<span class="prop">c</span>, <span class="prop">map</span>.<span class="fn">getOrDefault</span>(<span class="prop">c</span>, <span class="num">0</span>) + <span class="num">1</span>);
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>Linked List</h2>
+                </div>
+                <p>Linked List = <strong>chain of nodes</strong>। हर node में data + next node का address होता है।</p>
+                <div class="code-block">
+                    <div class="code-block-title">🔗 Singly Linked List</div>
+                    <pre><code><span class="kw">class</span> <span class="fn">Node</span> {
+    <span class="kw">int</span> <span class="prop">data</span>;
+    <span class="fn">Node</span> <span class="prop">next</span>;
+    <span class="fn">Node</span>(<span class="kw">int</span> <span class="prop">d</span>) { <span class="prop">data</span> = <span class="prop">d</span>; <span class="prop">next</span> = <span class="val">null</span>; }
+}
+
+<span class="kw">class</span> <span class="fn">LinkedList</span> {
+    <span class="fn">Node</span> <span class="prop">head</span>;
+
+    <span class="cmt">// Add at beginning — O(1)</span>
+    <span class="kw">void</span> <span class="fn">addFirst</span>(<span class="kw">int</span> <span class="prop">data</span>) {
+        <span class="fn">Node</span> <span class="prop">newNode</span> = <span class="kw">new</span> <span class="fn">Node</span>(<span class="prop">data</span>);
+        <span class="prop">newNode</span>.<span class="prop">next</span> = <span class="prop">head</span>;
+        <span class="prop">head</span> = <span class="prop">newNode</span>;
+    }
+
+    <span class="cmt">// Print all — O(n)</span>
+    <span class="kw">void</span> <span class="fn">print</span>() {
+        <span class="fn">Node</span> <span class="prop">temp</span> = <span class="prop">head</span>;
+        <span class="kw">while</span> (<span class="prop">temp</span> != <span class="val">null</span>) {
+            <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">print</span>(<span class="prop">temp</span>.<span class="prop">data</span> + <span class="val">" → "</span>);
+            <span class="prop">temp</span> = <span class="prop">temp</span>.<span class="prop">next</span>;
+        }
+        <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"null"</span>);
+    }
+}</code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Operation</th>
+                        <th>Array</th>
+                        <th>Linked List</th>
+                    </tr>
+                    <tr>
+                        <td>Access by index</td>
+                        <td>O(1) ✅</td>
+                        <td>O(n) ❌</td>
+                    </tr>
+                    <tr>
+                        <td>Insert at head</td>
+                        <td>O(n) ❌</td>
+                        <td>O(1) ✅</td>
+                    </tr>
+                    <tr>
+                        <td>Insert at end</td>
+                        <td>O(1)</td>
+                        <td>O(n) or O(1)*</td>
+                    </tr>
+                    <tr>
+                        <td>Search</td>
+                        <td>O(n)</td>
+                        <td>O(n)</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>Contiguous</td>
+                        <td>Scattered + extra pointer</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>Stack & Queue</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📚 Stack (LIFO) & Queue (FIFO)</div>
+                    <pre><code><span class="cmt">// Stack — Last In, First Out (थाली उल्टा रखना)</span>
+<span class="cmt">// push(add), pop(remove), peek(top देखो)</span>
+<span class="fn">Stack</span>&lt;<span class="prop">Integer</span>&gt; <span class="prop">stack</span> = <span class="kw">new</span> <span class="fn">Stack</span>&lt;&gt;();
+<span class="prop">stack</span>.<span class="fn">push</span>(<span class="num">10</span>);
+<span class="prop">stack</span>.<span class="fn">push</span>(<span class="num">20</span>);
+<span class="prop">stack</span>.<span class="fn">push</span>(<span class="num">30</span>);
+<span class="prop">stack</span>.<span class="fn">pop</span>();   <span class="cmt">// 30 (last in, first out)</span>
+<span class="prop">stack</span>.<span class="fn">peek</span>();  <span class="cmt">// 20 (top element)</span>
+
+<span class="cmt">// Queue — First In, First Out (line में खड़ा होना)</span>
+<span class="cmt">// offer(add), poll(remove), peek(front देखो)</span>
+<span class="fn">Queue</span>&lt;<span class="prop">Integer</span>&gt; <span class="prop">queue</span> = <span class="kw">new</span> <span class="fn">LinkedList</span>&lt;&gt;();
+<span class="prop">queue</span>.<span class="fn">offer</span>(<span class="num">10</span>);
+<span class="prop">queue</span>.<span class="fn">offer</span>(<span class="num">20</span>);
+<span class="prop">queue</span>.<span class="fn">offer</span>(<span class="num">30</span>);
+<span class="prop">queue</span>.<span class="fn">poll</span>();   <span class="cmt">// 10 (first in, first out)</span>
+
+<span class="cmt">// ⭐ Stack use: Balanced Parentheses Check</span>
+<span class="kw">boolean</span> <span class="fn">isValid</span>(<span class="prop">String</span> <span class="prop">s</span>) {
+    <span class="fn">Stack</span>&lt;<span class="prop">Character</span>&gt; <span class="prop">st</span> = <span class="kw">new</span> <span class="fn">Stack</span>&lt;&gt;();
+    <span class="kw">for</span> (<span class="kw">char</span> <span class="prop">c</span> : <span class="prop">s</span>.<span class="fn">toCharArray</span>()) {
+        <span class="kw">if</span> (<span class="prop">c</span> == <span class="val">'('</span>) <span class="prop">st</span>.<span class="fn">push</span>(<span class="val">')'</span>);
+        <span class="kw">else if</span> (<span class="prop">st</span>.<span class="fn">isEmpty</span>() || <span class="prop">st</span>.<span class="fn">pop</span>() != <span class="prop">c</span>) <span class="kw">return</span> <span class="val">false</span>;
+    }
+    <span class="kw">return</span> <span class="prop">st</span>.<span class="fn">isEmpty</span>();
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Recursion — Function खुद को Call करना</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔄 Recursion Examples</div>
+                    <pre><code><span class="cmt">// Factorial: n! = n × (n-1) × ... × 1</span>
+<span class="kw">int</span> <span class="fn">factorial</span>(<span class="kw">int</span> <span class="prop">n</span>) {
+    <span class="kw">if</span> (<span class="prop">n</span> <= <span class="num">1</span>) <span class="kw">return</span> <span class="num">1</span>;  <span class="cmt">// Base case (रुको!)</span>
+    <span class="kw">return</span> <span class="prop">n</span> * <span class="fn">factorial</span>(<span class="prop">n</span> - <span class="num">1</span>); <span class="cmt">// Recursive call</span>
+}
+<span class="cmt">// factorial(5) = 5×4×3×2×1 = 120</span>
+
+<span class="cmt">// Fibonacci: 0, 1, 1, 2, 3, 5, 8, 13...</span>
+<span class="kw">int</span> <span class="fn">fib</span>(<span class="kw">int</span> <span class="prop">n</span>) {
+    <span class="kw">if</span> (<span class="prop">n</span> <= <span class="num">1</span>) <span class="kw">return</span> <span class="prop">n</span>;
+    <span class="kw">return</span> <span class="fn">fib</span>(<span class="prop">n</span>-<span class="num">1</span>) + <span class="fn">fib</span>(<span class="prop">n</span>-<span class="num">2</span>);
+}
+<span class="cmt">// ⚠️ O(2ⁿ) — very slow! Use DP to optimize</span>
+
+<span class="cmt">// Power: x^n</span>
+<span class="kw">int</span> <span class="fn">power</span>(<span class="kw">int</span> <span class="prop">x</span>, <span class="kw">int</span> <span class="prop">n</span>) {
+    <span class="kw">if</span> (<span class="prop">n</span> == <span class="num">0</span>) <span class="kw">return</span> <span class="num">1</span>;
+    <span class="kw">return</span> <span class="prop">x</span> * <span class="fn">power</span>(<span class="prop">x</span>, <span class="prop">n</span>-<span class="num">1</span>);
+}</code></pre>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ Recursion Rules:</strong> 1) हमेशा <strong>base case</strong> रखो (रुकने की
+                        condition)। 2) हर call में problem <strong>छोटी</strong> होनी चाहिए। 3) बिना base case =
+                        <strong>infinite loop = Stack Overflow!</strong></p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>Sorting Algorithms</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔀 Bubble Sort — O(n²)</div>
+                    <pre><code><span class="kw">void</span> <span class="fn">bubbleSort</span>(<span class="kw">int</span>[] <span class="prop">arr</span>) {
+    <span class="kw">int</span> <span class="prop">n</span> = <span class="prop">arr</span>.<span class="prop">length</span>;
+    <span class="kw">for</span> (<span class="kw">int</span> <span class="prop">i</span> = <span class="num">0</span>; <span class="prop">i</span> < <span class="prop">n</span>-<span class="num">1</span>; <span class="prop">i</span>++) {
+        <span class="kw">for</span> (<span class="kw">int</span> <span class="prop">j</span> = <span class="num">0</span>; <span class="prop">j</span> < <span class="prop">n</span>-<span class="prop">i</span>-<span class="num">1</span>; <span class="prop">j</span>++) {
+            <span class="kw">if</span> (<span class="prop">arr</span>[<span class="prop">j</span>] > <span class="prop">arr</span>[<span class="prop">j</span>+<span class="num">1</span>]) {
+                <span class="cmt">// Swap</span>
+                <span class="kw">int</span> <span class="prop">temp</span> = <span class="prop">arr</span>[<span class="prop">j</span>];
+                <span class="prop">arr</span>[<span class="prop">j</span>] = <span class="prop">arr</span>[<span class="prop">j</span>+<span class="num">1</span>];
+                <span class="prop">arr</span>[<span class="prop">j</span>+<span class="num">1</span>] = <span class="prop">temp</span>;
+            }
+        }
+    }
+}</code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Algorithm</th>
+                        <th>Best</th>
+                        <th>Average</th>
+                        <th>Worst</th>
+                        <th>Stable?</th>
+                    </tr>
+                    <tr>
+                        <td>Bubble Sort</td>
+                        <td>O(n)</td>
+                        <td>O(n²)</td>
+                        <td>O(n²)</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Selection Sort</td>
+                        <td>O(n²)</td>
+                        <td>O(n²)</td>
+                        <td>O(n²)</td>
+                        <td>❌</td>
+                    </tr>
+                    <tr>
+                        <td>Insertion Sort</td>
+                        <td>O(n)</td>
+                        <td>O(n²)</td>
+                        <td>O(n²)</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Merge Sort</td>
+                        <td>O(n log n)</td>
+                        <td>O(n log n)</td>
+                        <td>O(n log n)</td>
+                        <td>✅</td>
+                    </tr>
+                    <tr>
+                        <td>Quick Sort</td>
+                        <td>O(n log n)</td>
+                        <td>O(n log n)</td>
+                        <td>O(n²)</td>
+                        <td>❌</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>Searching — Binary Search</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔍 Binary Search — O(log n)</div>
+                    <pre><code><span class="cmt">// ⭐ Sorted array ज़रूरी है!</span>
+<span class="kw">int</span> <span class="fn">binarySearch</span>(<span class="kw">int</span>[] <span class="prop">arr</span>, <span class="kw">int</span> <span class="prop">target</span>) {
+    <span class="kw">int</span> <span class="prop">left</span> = <span class="num">0</span>, <span class="prop">right</span> = <span class="prop">arr</span>.<span class="prop">length</span> - <span class="num">1</span>;
+
+    <span class="kw">while</span> (<span class="prop">left</span> <= <span class="prop">right</span>) {
+        <span class="kw">int</span> <span class="prop">mid</span> = <span class="prop">left</span> + (<span class="prop">right</span> - <span class="prop">left</span>) / <span class="num">2</span>;
+
+        <span class="kw">if</span> (<span class="prop">arr</span>[<span class="prop">mid</span>] == <span class="prop">target</span>) <span class="kw">return</span> <span class="prop">mid</span>;
+        <span class="kw">else if</span> (<span class="prop">arr</span>[<span class="prop">mid</span>] < <span class="prop">target</span>) <span class="prop">left</span> = <span class="prop">mid</span> + <span class="num">1</span>;
+        <span class="kw">else</span> <span class="prop">right</span> = <span class="prop">mid</span> - <span class="num">1</span>;
+    }
+    <span class="kw">return</span> -<span class="num">1</span>;
+}
+
+<span class="cmt">/*  Array: [2, 5, 8, 12, 16, 23, 38, 56]
+ *  Target: 23
+ *  Step 1: mid=12, 23>12 → left half छोड़ो
+ *  Step 2: mid=23, Found! ✅
+ *  सिर्फ 2 steps में 8 elements से search हुआ!
+ */</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>Trees — Binary Tree & BST</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🌳 Binary Search Tree (BST)</div>
+                    <pre><code><span class="cmt">/*     8        → Root
+ *    / \
+ *   3   10      → Left child < Parent < Right child
+ *  / \    \
+ * 1   6   14
+ */</span>
+
+<span class="kw">class</span> <span class="fn">TreeNode</span> {
+    <span class="kw">int</span> <span class="prop">val</span>;
+    <span class="fn">TreeNode</span> <span class="prop">left</span>, <span class="prop">right</span>;
+    <span class="fn">TreeNode</span>(<span class="kw">int</span> <span class="prop">v</span>) { <span class="prop">val</span> = <span class="prop">v</span>; }
+}
+
+<span class="cmt">// Inorder Traversal: Left → Root → Right (sorted output!)</span>
+<span class="kw">void</span> <span class="fn">inorder</span>(<span class="fn">TreeNode</span> <span class="prop">root</span>) {
+    <span class="kw">if</span> (<span class="prop">root</span> == <span class="val">null</span>) <span class="kw">return</span>;
+    <span class="fn">inorder</span>(<span class="prop">root</span>.<span class="prop">left</span>);
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">print</span>(<span class="prop">root</span>.<span class="prop">val</span> + <span class="val">" "</span>);
+    <span class="fn">inorder</span>(<span class="prop">root</span>.<span class="prop">right</span>);
+}
+<span class="cmt">// Output: 1 3 6 8 10 14 (sorted!)</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>🤖 AI Tips for DSA</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "इस problem का approach step by step बताओ (code मत दो)"</p>
+                    <p>• "मेरे solution की time complexity analyze करो"</p>
+                    <p>• "इस brute-force solution को optimize करो"</p>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI की common गलतियाँ:</strong></p>
+                    <p>• <strong>Direct solution दे देता है</strong> — पहले खुद try करो!</p>
+                    <p>• <strong>Edge cases miss</strong> — empty array, single element, negative numbers</p>
+                    <p>• <strong>Non-optimal solution</strong> — O(n²) दे सकता है जब O(n) possible हो</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: Array vs Linked List कब use करें?</strong></p>
+                    <p>→ Random access → Array. Frequent insert/delete → LinkedList.</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: Stack vs Queue difference?</strong></p>
+                    <p>→ Stack = LIFO (plate stack). Queue = FIFO (bank line).</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Binary Search की condition?</strong></p>
+                    <p>→ Array <strong>sorted</strong> होना चाहिए! Time: O(log n).</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: Stable vs Unstable sorting?</strong></p>
+                    <p>→ Stable = equal elements का original order maintain होता है (Merge Sort). Unstable = नहीं (Quick
+                        Sort).</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: HashMap vs TreeMap?</strong></p>
+                    <p>→ HashMap = O(1) access, unordered. TreeMap = O(log n) access, sorted keys.</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> Array में <strong>second largest element</strong> find करो — O(n) में!
+                        (single pass)</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> एक <strong>Linked List reverse</strong> करो — iterative approach से।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> <strong>Binary Search</strong> implement करो — sorted array में target
+                        element find करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> Stack से <strong>balanced parentheses</strong> check करो — "((()))"
+                        valid, "(()" invalid।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> <strong>Merge Sort</strong> implement करो और unsorted array को sort करो।
+                    </p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="java-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">Java Notes</span></a>
+                <a href="sql-notes.html" class="nav-btn next"><span class="nav-dir">Next Course →</span><span
+                        class="nav-title">SQL Notes</span></a>
+            </div>
+        </div>
+    </div>
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.05 }); document.querySelectorAll('.chapter').forEach(el => io.observe(el)); const chs = document.querySelectorAll('.chapter'), sls = document.querySelectorAll('.sidebar a'); const so = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sls.forEach(l => l.classList.remove('active')); const l = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (l) l.classList.add('active') } }) }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }); chs.forEach(c => so.observe(c)); document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }) }) });</script>
+</body>
+
+</html>
