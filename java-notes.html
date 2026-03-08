@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Java Complete Notes in Hindi — OOP, Classes, Inheritance, Collections, Multithreading सब detail में!">
+    <title>Java Notes — Ansu Learning</title>
+    <link rel="stylesheet" href="course.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="course-header">
+        <div class="header-inner"><a href="index.html" class="back-link">← Back to Courses</a>
+            <div class="course-title-bar"><span class="icon">☕</span>
+                <h1>Java Complete Notes</h1>
+            </div>
+        </div>
+    </header>
+    <div class="page-layout">
+        <aside class="sidebar">
+            <h3>Chapters</h3>
+            <ul>
+                <li><a href="#ch1">1. Java क्या है?</a></li>
+                <li><a href="#ch2">2. Setup & First Program</a></li>
+                <li><a href="#ch3">3. Variables & Data Types</a></li>
+                <li><a href="#ch4">4. Operators & Control</a></li>
+                <li><a href="#ch5">5. OOP — Classes</a></li>
+                <li><a href="#ch6">6. Inheritance</a></li>
+                <li><a href="#ch7">7. Polymorphism</a></li>
+                <li><a href="#ch8">8. Abstraction & Interface</a></li>
+                <li><a href="#ch9">9. Exception Handling</a></li>
+                <li><a href="#ch10">10. Collections</a></li>
+                <li><a href="#ch11">11. AI Tips</a></li>
+                <li><a href="#ch12">12. Interview Qs</a></li>
+                <li><a href="#ch13">13. Practice Tasks</a></li>
+            </ul>
+        </aside>
+        <div class="course-content">
+
+            <div class="chapter" id="ch1">
+                <div class="chapter-header"><span class="ch-num">Ch 01</span>
+                    <h2>Java क्या है? — Introduction</h2>
+                </div>
+                <p><strong>Java</strong> दुनिया की सबसे popular programming languages में से एक है। यह
+                    <em>Object-Oriented</em>, <em>Platform Independent</em>, और <em>Secure</em> है।</p>
+                <ul>
+                    <li><strong>"Write Once, Run Anywhere"</strong> — JVM (Java Virtual Machine) की वजह से हर OS पर चलता
+                        है</li>
+                    <li><strong>Backend Development</strong> — Spring Boot, enterprise applications</li>
+                    <li><strong>Android Development</strong> — Android apps Java/Kotlin में बनती हैं</li>
+                    <li><strong>High Demand</strong> — India में सबसे ज़्यादा Java jobs हैं</li>
+                    <li><strong>Strong OOP</strong> — real-world problems को objects से solve करता है</li>
+                </ul>
+                <div class="info-box note">
+                    <p><strong>💡 Java vs JavaScript:</strong> दोनों बिल्कुल <em>अलग</em> languages हैं! Java =
+                        compiled, strongly typed, OOP। JavaScript = interpreted, dynamic, web-focused।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch2">
+                <div class="chapter-header"><span class="ch-num">Ch 02</span>
+                    <h2>Setup & पहला Program</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📦 Install करें</div>
+                    <pre><code><span class="cmt">// 1. JDK (Java Development Kit) install करो</span>
+<span class="cmt">//    → https://www.oracle.com/java/technologies/downloads/</span>
+<span class="cmt">// 2. VS Code + "Extension Pack for Java" install करो</span>
+<span class="cmt">// 3. Terminal में check करो:</span>
+<span class="fn">java</span> --version
+<span class="fn">javac</span> --version</code></pre>
+                </div>
+
+                <div class="code-block">
+                    <div class="code-block-title">☕ Hello World — HelloWorld.java</div>
+                    <pre><code><span class="kw">public class</span> <span class="fn">HelloWorld</span> {
+    <span class="kw">public static void</span> <span class="fn">main</span>(<span class="prop">String</span>[] <span class="prop">args</span>) {
+        <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Hello, Anshu! ☕"</span>);
+        <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Java सीखना शुरू!"</span>);
+    }
+}
+
+<span class="cmt">// Run: javac HelloWorld.java → java HelloWorld</span></code></pre>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>💡 Rule:</strong> File का नाम और class का नाम <strong>same</strong> होना चाहिए!
+                        HelloWorld.java → public class HelloWorld</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch3">
+                <div class="chapter-header"><span class="ch-num">Ch 03</span>
+                    <h2>Variables & Data Types</h2>
+                </div>
+                <p>Java <strong>strongly typed</strong> है — हर variable का type पहले बताना पड़ता है:</p>
+                <div class="code-block">
+                    <div class="code-block-title">📦 Data Types</div>
+                    <pre><code><span class="cmt">// Primitive Types (basic)</span>
+<span class="kw">int</span> <span class="prop">age</span> = <span class="num">20</span>;            <span class="cmt">// Integer (whole number)</span>
+<span class="kw">double</span> <span class="prop">price</span> = <span class="num">99.99</span>;    <span class="cmt">// Decimal number</span>
+<span class="kw">char</span> <span class="prop">grade</span> = <span class="val">'A'</span>;        <span class="cmt">// Single character</span>
+<span class="kw">boolean</span> <span class="prop">isStudent</span> = <span class="val">true</span>; <span class="cmt">// true/false</span>
+<span class="kw">float</span> <span class="prop">pi</span> = <span class="num">3.14f</span>;        <span class="cmt">// Float (f ज़रूरी)</span>
+<span class="kw">long</span> <span class="prop">bigNum</span> = <span class="num">999999999L</span>; <span class="cmt">// Long (L ज़रूरी)</span>
+
+<span class="cmt">// Reference Type</span>
+<span class="prop">String</span> <span class="prop">name</span> = <span class="val">"Anshu"</span>;   <span class="cmt">// String (capital S!)</span>
+
+<span class="cmt">// Constants</span>
+<span class="kw">final</span> <span class="kw">int</span> <span class="prop">MAX</span> = <span class="num">100</span>;    <span class="cmt">// final = cannot change (like const)</span>
+
+<span class="cmt">// Type Casting</span>
+<span class="kw">int</span> <span class="prop">x</span> = (<span class="kw">int</span>) <span class="num">9.7</span>;     <span class="cmt">// 9 (explicit — data loss!)</span>
+<span class="kw">double</span> <span class="prop">y</span> = <span class="num">5</span>;           <span class="cmt">// 5.0 (implicit — safe)</span></code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Range</th>
+                    </tr>
+                    <tr>
+                        <td><code>byte</code></td>
+                        <td>1 byte</td>
+                        <td>-128 to 127</td>
+                    </tr>
+                    <tr>
+                        <td><code>short</code></td>
+                        <td>2 bytes</td>
+                        <td>-32,768 to 32,767</td>
+                    </tr>
+                    <tr>
+                        <td><code>int</code></td>
+                        <td>4 bytes</td>
+                        <td>-2B to 2B</td>
+                    </tr>
+                    <tr>
+                        <td><code>long</code></td>
+                        <td>8 bytes</td>
+                        <td>Very large</td>
+                    </tr>
+                    <tr>
+                        <td><code>float</code></td>
+                        <td>4 bytes</td>
+                        <td>6-7 decimal digits</td>
+                    </tr>
+                    <tr>
+                        <td><code>double</code></td>
+                        <td>8 bytes</td>
+                        <td>15 decimal digits</td>
+                    </tr>
+                    <tr>
+                        <td><code>boolean</code></td>
+                        <td>1 bit</td>
+                        <td>true / false</td>
+                    </tr>
+                    <tr>
+                        <td><code>char</code></td>
+                        <td>2 bytes</td>
+                        <td>Single character</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch4">
+                <div class="chapter-header"><span class="ch-num">Ch 04</span>
+                    <h2>Operators & Control Flow</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🔀 Conditions & Loops</div>
+                    <pre><code><span class="cmt">// If-Else</span>
+<span class="kw">int</span> <span class="prop">marks</span> = <span class="num">85</span>;
+<span class="kw">if</span> (<span class="prop">marks</span> >= <span class="num">90</span>) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"A+ Grade"</span>);
+} <span class="kw">else if</span> (<span class="prop">marks</span> >= <span class="num">80</span>) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"A Grade"</span>);
+} <span class="kw">else</span> {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Need improvement"</span>);
+}
+
+<span class="cmt">// For Loop</span>
+<span class="kw">for</span> (<span class="kw">int</span> <span class="prop">i</span> = <span class="num">1</span>; <span class="prop">i</span> <= <span class="num">5</span>; <span class="prop">i</span>++) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Count: "</span> + <span class="prop">i</span>);
+}
+
+<span class="cmt">// For-Each (arrays/collections)</span>
+<span class="prop">String</span>[] <span class="prop">fruits</span> = {<span class="val">"Apple"</span>, <span class="val">"Banana"</span>, <span class="val">"Mango"</span>};
+<span class="kw">for</span> (<span class="prop">String</span> <span class="prop">fruit</span> : <span class="prop">fruits</span>) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="prop">fruit</span>);
+}
+
+<span class="cmt">// While Loop</span>
+<span class="kw">int</span> <span class="prop">count</span> = <span class="num">0</span>;
+<span class="kw">while</span> (<span class="prop">count</span> < <span class="num">3</span>) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="prop">count</span>);
+    <span class="prop">count</span>++;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch5">
+                <div class="chapter-header"><span class="ch-num">Ch 05</span>
+                    <h2>OOP — Classes & Objects</h2>
+                </div>
+                <p>Java <strong>Object-Oriented</strong> है — real world चीजों को code में represent करो:</p>
+                <div class="code-block">
+                    <div class="code-block-title">🧱 Class & Object</div>
+                    <pre><code><span class="cmt">// Class = Blueprint (design/template)</span>
+<span class="kw">public class</span> <span class="fn">Student</span> {
+    <span class="cmt">// Properties (data)</span>
+    <span class="prop">String</span> <span class="prop">name</span>;
+    <span class="kw">int</span> <span class="prop">age</span>;
+
+    <span class="cmt">// Constructor (object बनाते समय call)</span>
+    <span class="kw">public</span> <span class="fn">Student</span>(<span class="prop">String</span> <span class="prop">name</span>, <span class="kw">int</span> <span class="prop">age</span>) {
+        <span class="kw">this</span>.<span class="prop">name</span> = <span class="prop">name</span>;
+        <span class="kw">this</span>.<span class="prop">age</span> = <span class="prop">age</span>;
+    }
+
+    <span class="cmt">// Method (behavior/action)</span>
+    <span class="kw">public void</span> <span class="fn">introduce</span>() {
+        <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Hi, I'm "</span> + <span class="prop">name</span> + <span class="val">", age "</span> + <span class="prop">age</span>);
+    }
+}
+
+<span class="cmt">// Object = Blueprint से बनी actual चीज</span>
+<span class="fn">Student</span> <span class="prop">s1</span> = <span class="kw">new</span> <span class="fn">Student</span>(<span class="val">"Anshu"</span>, <span class="num">20</span>);
+<span class="prop">s1</span>.<span class="fn">introduce</span>();  <span class="cmt">// "Hi, I'm Anshu, age 20"</span></code></pre>
+                </div>
+                <div class="info-box note">
+                    <p><strong>🔑 OOP 4 Pillars:</strong> Encapsulation (data hiding), Inheritance (reuse), Polymorphism
+                        (many forms), Abstraction (simplify)</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch6">
+                <div class="chapter-header"><span class="ch-num">Ch 06</span>
+                    <h2>Inheritance — Code Reuse</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">👨‍👦 Inheritance</div>
+                    <pre><code><span class="cmt">// Parent Class</span>
+<span class="kw">class</span> <span class="fn">Animal</span> {
+    <span class="prop">String</span> <span class="prop">name</span>;
+    <span class="kw">void</span> <span class="fn">eat</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="prop">name</span> + <span class="val">" is eating"</span>); }
+}
+
+<span class="cmt">// Child Class — extends keyword</span>
+<span class="kw">class</span> <span class="fn">Dog</span> <span class="kw">extends</span> <span class="fn">Animal</span> {
+    <span class="kw">void</span> <span class="fn">bark</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Woof! 🐕"</span>); }
+}
+
+<span class="fn">Dog</span> <span class="prop">d</span> = <span class="kw">new</span> <span class="fn">Dog</span>();
+<span class="prop">d</span>.<span class="prop">name</span> = <span class="val">"Buddy"</span>;
+<span class="prop">d</span>.<span class="fn">eat</span>();   <span class="cmt">// Parent method — "Buddy is eating"</span>
+<span class="prop">d</span>.<span class="fn">bark</span>();  <span class="cmt">// Own method — "Woof! 🐕"</span></code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch7">
+                <div class="chapter-header"><span class="ch-num">Ch 07</span>
+                    <h2>Polymorphism — Many Forms</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎭 Method Overloading & Overriding</div>
+                    <pre><code><span class="cmt">// Method OVERLOADING (same name, different parameters)</span>
+<span class="kw">class</span> <span class="fn">Calculator</span> {
+    <span class="kw">int</span> <span class="fn">add</span>(<span class="kw">int</span> <span class="prop">a</span>, <span class="kw">int</span> <span class="prop">b</span>) { <span class="kw">return</span> <span class="prop">a</span> + <span class="prop">b</span>; }
+    <span class="kw">double</span> <span class="fn">add</span>(<span class="kw">double</span> <span class="prop">a</span>, <span class="kw">double</span> <span class="prop">b</span>) { <span class="kw">return</span> <span class="prop">a</span> + <span class="prop">b</span>; }
+    <span class="kw">int</span> <span class="fn">add</span>(<span class="kw">int</span> <span class="prop">a</span>, <span class="kw">int</span> <span class="prop">b</span>, <span class="kw">int</span> <span class="prop">c</span>) { <span class="kw">return</span> <span class="prop">a</span>+<span class="prop">b</span>+<span class="prop">c</span>; }
+}
+
+<span class="cmt">// Method OVERRIDING (child redefines parent method)</span>
+<span class="kw">class</span> <span class="fn">Animal</span> {
+    <span class="kw">void</span> <span class="fn">sound</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"..."</span>); }
+}
+<span class="kw">class</span> <span class="fn">Cat</span> <span class="kw">extends</span> <span class="fn">Animal</span> {
+    <span class="kw">@Override</span>
+    <span class="kw">void</span> <span class="fn">sound</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Meow! 🐱"</span>); }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch8">
+                <div class="chapter-header"><span class="ch-num">Ch 08</span>
+                    <h2>Abstraction & Interface</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🎨 Abstract Class & Interface</div>
+                    <pre><code><span class="cmt">// Abstract Class — partial implementation</span>
+<span class="kw">abstract class</span> <span class="fn">Shape</span> {
+    <span class="kw">abstract double</span> <span class="fn">area</span>();  <span class="cmt">// No body — child must implement</span>
+    <span class="kw">void</span> <span class="fn">display</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"I'm a shape"</span>); }
+}
+
+<span class="kw">class</span> <span class="fn">Circle</span> <span class="kw">extends</span> <span class="fn">Shape</span> {
+    <span class="kw">double</span> <span class="prop">radius</span>;
+    <span class="fn">Circle</span>(<span class="kw">double</span> <span class="prop">r</span>) { <span class="kw">this</span>.<span class="prop">radius</span> = <span class="prop">r</span>; }
+    <span class="kw">double</span> <span class="fn">area</span>() { <span class="kw">return</span> <span class="num">3.14</span> * <span class="prop">radius</span> * <span class="prop">radius</span>; }
+}
+
+<span class="cmt">// Interface — 100% abstract (contract)</span>
+<span class="kw">interface</span> <span class="fn">Drawable</span> {
+    <span class="kw">void</span> <span class="fn">draw</span>();  <span class="cmt">// must implement</span>
+}
+
+<span class="kw">class</span> <span class="fn">Square</span> <span class="kw">implements</span> <span class="fn">Drawable</span> {
+    <span class="kw">public void</span> <span class="fn">draw</span>() { <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Drawing □"</span>); }
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch9">
+                <div class="chapter-header"><span class="ch-num">Ch 09</span>
+                    <h2>Exception Handling — Error पकड़ो</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">🛡️ Try-Catch</div>
+                    <pre><code><span class="kw">try</span> {
+    <span class="kw">int</span> <span class="prop">result</span> = <span class="num">10</span> / <span class="num">0</span>;  <span class="cmt">// ArithmeticException!</span>
+} <span class="kw">catch</span> (<span class="fn">ArithmeticException</span> <span class="prop">e</span>) {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"Error: "</span> + <span class="prop">e</span>.<span class="fn">getMessage</span>());
+} <span class="kw">finally</span> {
+    <span class="prop">System</span>.<span class="prop">out</span>.<span class="fn">println</span>(<span class="val">"यह हमेशा चलेगा!"</span>);
+}
+
+<span class="cmt">// Custom Exception</span>
+<span class="kw">class</span> <span class="fn">AgeException</span> <span class="kw">extends</span> <span class="fn">Exception</span> {
+    <span class="fn">AgeException</span>(<span class="prop">String</span> <span class="prop">msg</span>) { <span class="kw">super</span>(<span class="prop">msg</span>); }
+}
+
+<span class="cmt">// throws keyword</span>
+<span class="kw">void</span> <span class="fn">checkAge</span>(<span class="kw">int</span> <span class="prop">age</span>) <span class="kw">throws</span> <span class="fn">AgeException</span> {
+    <span class="kw">if</span> (<span class="prop">age</span> < <span class="num">18</span>) <span class="kw">throw new</span> <span class="fn">AgeException</span>(<span class="val">"Too young!"</span>);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch10">
+                <div class="chapter-header"><span class="ch-num">Ch 10</span>
+                    <h2>Collections — Data Structures</h2>
+                </div>
+                <div class="code-block">
+                    <div class="code-block-title">📚 Collections Framework</div>
+                    <pre><code><span class="kw">import</span> java.util.*;
+
+<span class="cmt">// ArrayList — dynamic array</span>
+<span class="fn">ArrayList</span>&lt;<span class="prop">String</span>&gt; <span class="prop">list</span> = <span class="kw">new</span> <span class="fn">ArrayList</span>&lt;&gt;();
+<span class="prop">list</span>.<span class="fn">add</span>(<span class="val">"HTML"</span>);
+<span class="prop">list</span>.<span class="fn">add</span>(<span class="val">"CSS"</span>);
+<span class="prop">list</span>.<span class="fn">add</span>(<span class="val">"Java"</span>);
+<span class="prop">list</span>.<span class="fn">remove</span>(<span class="num">1</span>);        <span class="cmt">// CSS remove</span>
+<span class="prop">list</span>.<span class="fn">get</span>(<span class="num">0</span>);           <span class="cmt">// "HTML"</span>
+<span class="prop">list</span>.<span class="fn">size</span>();           <span class="cmt">// 2</span>
+
+<span class="cmt">// HashMap — key-value pairs</span>
+<span class="fn">HashMap</span>&lt;<span class="prop">String</span>, <span class="prop">Integer</span>&gt; <span class="prop">map</span> = <span class="kw">new</span> <span class="fn">HashMap</span>&lt;&gt;();
+<span class="prop">map</span>.<span class="fn">put</span>(<span class="val">"Anshu"</span>, <span class="num">95</span>);
+<span class="prop">map</span>.<span class="fn">put</span>(<span class="val">"Priya"</span>, <span class="num">88</span>);
+<span class="prop">map</span>.<span class="fn">get</span>(<span class="val">"Anshu"</span>);      <span class="cmt">// 95</span>
+
+<span class="cmt">// HashSet — unique values only</span>
+<span class="fn">HashSet</span>&lt;<span class="prop">String</span>&gt; <span class="prop">set</span> = <span class="kw">new</span> <span class="fn">HashSet</span>&lt;&gt;();
+<span class="prop">set</span>.<span class="fn">add</span>(<span class="val">"Java"</span>);
+<span class="prop">set</span>.<span class="fn">add</span>(<span class="val">"Java"</span>);  <span class="cmt">// Duplicate — ignored!</span>
+<span class="prop">set</span>.<span class="fn">size</span>();       <span class="cmt">// 1</span></code></pre>
+                </div>
+                <table class="notes-table">
+                    <tr>
+                        <th>Collection</th>
+                        <th>Type</th>
+                        <th>Duplicates?</th>
+                        <th>Ordered?</th>
+                    </tr>
+                    <tr>
+                        <td>ArrayList</td>
+                        <td>List</td>
+                        <td>✅ Yes</td>
+                        <td>✅ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>LinkedList</td>
+                        <td>List</td>
+                        <td>✅ Yes</td>
+                        <td>✅ Yes</td>
+                    </tr>
+                    <tr>
+                        <td>HashSet</td>
+                        <td>Set</td>
+                        <td>❌ No</td>
+                        <td>❌ No</td>
+                    </tr>
+                    <tr>
+                        <td>TreeSet</td>
+                        <td>Set</td>
+                        <td>❌ No</td>
+                        <td>✅ Sorted</td>
+                    </tr>
+                    <tr>
+                        <td>HashMap</td>
+                        <td>Map</td>
+                        <td>Key: No</td>
+                        <td>❌ No</td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="chapter" id="ch11">
+                <div class="chapter-header"><span class="ch-num">Ch 11</span>
+                    <h2>🤖 AI Tips for Java</h2>
+                </div>
+                <div class="info-box tip">
+                    <p><strong>✅ AI से ये करवाएं:</strong></p>
+                    <p>• "इस problem के लिए class hierarchy design करो"</p>
+                    <p>• "ArrayList vs LinkedList — कब क्या use करें?"</p>
+                    <p>• "इस code को OOP principles follow करके refactor करो"</p>
+                    <p>• "Exception handling add करो इस code में"</p>
+                </div>
+                <div class="info-box warn">
+                    <p><strong>⚠️ AI की common गलतियाँ:</strong></p>
+                    <p>• <strong>Access modifiers miss</strong> — public/private भूल जाता है</p>
+                    <p>• <strong>Null checks missing</strong> — NullPointerException risk</p>
+                    <p>• <strong>Generic types raw</strong> — ArrayList &lt;String&gt; की जगह raw ArrayList use</p>
+                    <p>• <strong>Resource leaks</strong> — streams/connections close नहीं करता</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch12">
+                <div class="chapter-header"><span class="ch-num">Ch 12</span>
+                    <h2>🎯 Interview Questions</h2>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q1: JDK, JRE, JVM में फर्क?</strong></p>
+                    <p>→ JVM = code execute करता है। JRE = JVM + libraries। JDK = JRE + compiler + tools (development के
+                        लिए)।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q2: Abstract Class vs Interface?</strong></p>
+                    <p>→ Abstract = partial implementation, single inheritance। Interface = 100% contract, multiple
+                        implement कर सकते हैं।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q3: Overloading vs Overriding?</strong></p>
+                    <p>→ Overloading = same name, different params (compile-time)। Overriding = child redefines parent
+                        method (runtime)।</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q4: == vs .equals()?</strong></p>
+                    <p>→ == reference compare करता है (memory address)। .equals() value compare करता है (content)।
+                        Strings के लिए .equals() use करो!</p>
+                </div>
+                <div class="info-box note">
+                    <p><strong>Q5: ArrayList vs LinkedList?</strong></p>
+                    <p>→ ArrayList = fast random access, slow insert/delete। LinkedList = slow access, fast
+                        insert/delete। Most cases में ArrayList better।</p>
+                </div>
+            </div>
+
+            <div class="chapter" id="ch13">
+                <div class="chapter-header"><span class="ch-num">Ch 13</span>
+                    <h2>🏋️ Practice Tasks</h2>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 1:</strong> एक <strong>Student Management System</strong> बनाओ — Student class with
+                        name, marks, grade method। ArrayList में store करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 2:</strong> <strong>Bank Account</strong> class बनाओ — deposit, withdraw, getBalance
+                        methods। Withdraw में insufficient balance exception throw करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 3:</strong> <strong>Shape hierarchy</strong> बनाओ — abstract Shape, Circle,
+                        Rectangle, Triangle — area() और perimeter() implement करो।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 4:</strong> <strong>HashMap</strong> use करके word frequency counter बनाओ — input
+                        string में कौन सा word कितनी बार आया।</p>
+                </div>
+                <div class="info-box important">
+                    <p><strong>Task 5:</strong> <strong>Calculator</strong> बनाओ — interface Operable (calculate
+                        method), classes: Add, Subtract, Multiply, Divide।</p>
+                </div>
+            </div>
+
+            <div class="course-nav">
+                <a href="js-notes.html" class="nav-btn"><span class="nav-dir">← Previous</span><span
+                        class="nav-title">JavaScript Notes</span></a>
+                <a href="dsa-notes.html" class="nav-btn next"><span class="nav-dir">Next Course →</span><span
+                        class="nav-title">DSA Notes</span></a>
+            </div>
+        </div>
+    </div>
+    <footer class="course-footer">
+        <p>© 2026 <a href="index.html">Ansu Learning</a> | Built by Anshu with ❤️</p>
+    </footer>
+    <script>const io = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible') }) }, { threshold: 0.05 }); document.querySelectorAll('.chapter').forEach(el => io.observe(el)); const chs = document.querySelectorAll('.chapter'), sls = document.querySelectorAll('.sidebar a'); const so = new IntersectionObserver(es => { es.forEach(e => { if (e.isIntersecting) { sls.forEach(l => l.classList.remove('active')); const l = document.querySelector(`.sidebar a[href="#${e.target.id}"]`); if (l) l.classList.add('active') } }) }, { threshold: 0.2, rootMargin: '-80px 0px -60% 0px' }); chs.forEach(c => so.observe(c)); document.querySelectorAll('.sidebar a').forEach(a => { a.addEventListener('click', e => { e.preventDefault(); document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' }) }) });</script>
+</body>
+
+</html>
